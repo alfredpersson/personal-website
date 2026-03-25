@@ -43,8 +43,7 @@ theme:
   font:
     text: Inter
     code: JetBrains Mono
-  icon:
-    logo: material/slash-forward-box
+  logo: assets/logo.svg
   favicon: assets/favicon.png
 
 extra:
