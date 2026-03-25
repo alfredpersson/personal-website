@@ -53,7 +53,7 @@ Maturity isn't one number. It's shaped by five dimensions, and I score each one 
 
 1. **Product-Journey Fit.** Does the feature show up at the right moment for the right user? Does it solve a clear need and fit naturally into how work gets done?
 
-2. **UX & Trust.** Can users understand and act on the output without hand-holding? Do they know when to trust it and when not to?
+2. **UX & Trust.** Do users know how to use it and understand what it gives them? Can they tell when to trust it, and recover when it's wrong?
 
 3. **Output Quality.** Are outputs reliable even when inputs are messy or unexpected?
 
