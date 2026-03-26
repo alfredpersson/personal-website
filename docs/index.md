@@ -1,7 +1,7 @@
 ---
 title: About Me
-description: Freelance AI Engineer helping B2B SaaS teams ship AI features that get adopted. UX + engineering background, 5 years of distributed systems experience.
-keywords: Alfred Persson, AI engineer, freelance, SaaS AI features, RAG, LLM integration, UX engineering
+description: Freelance AI Product Engineer helping B2B SaaS teams ship AI features that get adopted. UX + engineering background, 5 years of distributed systems experience.
+keywords: Alfred Persson, AI product engineer, freelance, SaaS AI features, RAG, LLM integration, UX engineering
 author: Alfred Persson
 canonical_url: https://www.alfredpersson.com/
 ---
@@ -16,7 +16,7 @@ canonical_url: https://www.alfredpersson.com/
     "https://www.linkedin.com/in/alfredpersson/",
     "https://github.com/alfredpersson"
   ],
-  "jobTitle": "Freelance AI Engineer"
+  "jobTitle": "Freelance AI Product Engineer"
 }
 </script>
 
@@ -44,7 +44,7 @@ canonical_url: https://www.alfredpersson.com/
 
 <div class="profile-image-grid" markdown>
 
-![Alfred Persson, AI Engineer](assets/@alfredpersson.jpg){ .profile-image alt="Portrait of Alfred Persson, AI engineer" }
+![Alfred Persson, AI Product Engineer](assets/@alfredpersson.jpg){ .profile-image alt="Portrait of Alfred Persson, AI product engineer" }
 
 </div>
 
@@ -52,7 +52,7 @@ canonical_url: https://www.alfredpersson.com/
 
 ## About me
 
-Hi, I'm Alfred. I'm a freelance AI engineer and I work with B2B SaaS teams to build AI features that actually get used.
+Hi, I'm Alfred. I'm a freelance AI product engineer and I work with B2B SaaS teams to build AI features that actually get used.
 
 Most of my clients come to me because they've shipped an AI feature that isn't getting the adoption they expected. Users ignore it, work around it, or don't trust it. Usually it's not obvious whether that's a technical problem or a product problem. In my experience it tends to be both, and the fix lives somewhere in between.
 
