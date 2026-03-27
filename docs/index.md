@@ -4,6 +4,7 @@ description: Freelance AI Product Engineer helping B2B SaaS teams ship AI featur
 keywords: Alfred Persson, AI product engineer, freelance, SaaS AI features, RAG, LLM integration, UX engineering
 author: Alfred Persson
 canonical_url: https://www.alfredpersson.com/
+image: assets/thumbnail-website.jpg
 ---
 
 <script type="application/ld+json">
