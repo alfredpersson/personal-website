@@ -59,7 +59,7 @@ Most of my clients come to me because they've shipped an AI feature that isn't g
 
 I studied interaction technology and design at Umeå University, a programme that combines software engineering with UX and usability. After that I moved into backend and distributed systems, where I spent five years building blockchain infrastructure that had to stay reliable under unpredictable conditions. That mix of understanding what users need and knowing how to build reliable systems is what I bring to AI work now.
 
-What I've found is that the difference between an AI feature that gets adopted and one that gets ignored comes down to a few things: how it handles uncertainty, how it communicates its limits, and whether it fits how users actually think. Those are the decisions I focus on.
+What I've found is that the difference between an AI feature that gets adopted and one that gets ignored usually comes down to how it handles uncertainty and whether it fits how users actually think. Those are the decisions I focus on.
 
 ## Why work with me?
 
@@ -69,7 +69,7 @@ What I've found is that the difference between an AI feature that gets adopted a
 
     ---
 
-    I studied interaction design alongside software engineering. I don't just build features that work technically. I build features that fit how users actually think. That means fewer "it works but nobody uses it" situations.
+    I studied interaction design alongside software engineering. I build features that fit how users actually think, not just how the system works. That means fewer "it works but nobody uses it" situations.
 
 -   :material-server-network:{ .lg .middle } 5 Years in Production Systems
 
@@ -87,7 +87,7 @@ What I've found is that the difference between an AI feature that gets adopted a
 
     ---
 
-    Accuracy metrics don't matter if users don't trust the output. I care about how the feature handles failure, how it communicates uncertainty, and whether users have a clear path forward when the AI can't help.
+    Accuracy metrics don't matter if users don't trust the output. I focus on how the feature handles failure and communicates uncertainty, so users always have a clear path forward.
 
 </div>
 
@@ -99,7 +99,7 @@ What I've found is that the difference between an AI feature that gets adopted a
 
 :material-sync: **Integration & Iteration** · I embed into your team part-time (usually 2–3 days a week) to build, ship, and refine AI features alongside your existing engineers. Good for teams that have ongoing AI work but not enough in-house experience to move fast.
 
-:material-chart-line: **Observability & Improvement** · Setting up evaluation frameworks so you can measure whether your AI feature is actually working for users, not just technically running. Includes metrics, tracing, and a feedback loop you can use after I'm gone.
+:material-chart-line: **Observability & Improvement** · Setting up evaluation frameworks so you can measure whether your AI feature is actually helping users. Includes metrics, tracing, and a feedback loop you can use after I'm gone.
 
 ## Frequently asked questions
 
@@ -107,7 +107,7 @@ What I've found is that the difference between an AI feature that gets adopted a
     B2B SaaS products with user-facing AI features. Things like support bots, AI-assisted workflows, intelligent search, document processing. The common thread is that there's an AI component that end users interact with directly, and it needs to work well enough that people actually trust and use it.
 
 ??? note "What's your background?"
-    I studied interaction technology and design at Umeå University, a programme that combines software engineering with UX and usability. Then I spent five years building distributed systems and blockchain infrastructure. Now I'm applying that combination of UX thinking and production engineering to AI features.
+    Short version: interaction design and software engineering at Umeå University, then five years building distributed systems and blockchain infrastructure. The combination means I think about both the pipeline and the person using it, which is where most AI features break down.
 
 ??? note "Do you work as a contractor or on fixed-scope projects?"
     Both. Some teams bring me in part-time to build and iterate alongside their existing engineers. Others prefer a fixed-scope engagement: build this feature, ship it, hand it off. We can figure out what makes sense during the intro call.
