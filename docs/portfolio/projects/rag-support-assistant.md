@@ -1,6 +1,6 @@
 ---
 title: RAG Support Assistant
-description: A customer support RAG pipeline with designed failure paths, confidence gates, and self-critique — built to handle what happens when the AI can't answer.
+description: A customer support RAG pipeline with designed failure paths, confidence gates, and self-critique. Built to handle what happens when the AI can't answer.
 ---
 
 # RAG Support Assistant
@@ -10,20 +10,17 @@ description: A customer support RAG pipeline with designed failure paths, confid
     **Stack**: Python, FastAPI, OpenAI gpt-4o-mini, ChromaDB, sentence-transformers, cross-encoder reranker, pydantic-ai, Langfuse, vanilla JS
     **GitHub**: [alfredpersson/rag-support-assistant](https://github.com/alfredpersson/rag-support-assistant)
 
-    **Evaluation Results**:
+    **Focus**: Designing specific failure paths for when retrieval isn't confident, rather than optimizing for maximum accuracy.
 
-    - 71% expert hit rate @ 5 (retrieval accuracy)
-    - 4.80 / 5 faithfulness (grounding, not hallucination)
-    - 4.76 / 5 relevancy (answers the actual question)
-    - 7 experiments across retrieval strategy, query expansion, and chunk enrichment
+    **Evaluation** *(7 experiments, n=200 retrieval / n=50 generation)*: 71% hit rate · 4.80/5 faithfulness · 4.76/5 relevancy
 
 ## Overview
 
-A customer support RAG pipeline built over the [Wix Help Center dataset](https://huggingface.co/datasets/Wix/WixQA). Every stage — chunking, retrieval, reranking, classification, generation, and evaluation — is implemented from scratch so the design decisions are visible and auditable.
+A customer support RAG pipeline built over the [Wix Help Center dataset](https://huggingface.co/datasets/Wix/WixQA). Every stage (chunking, retrieval, reranking, classification, generation, and evaluation) is implemented from scratch so the design decisions are visible and auditable.
 
-The focus is on what happens when the pipeline *can't* confidently answer: when retrieval returns nothing useful, when the model hedges, or when the user is upset and asking to cancel their account. Each of these cases has a specific, designed response path rather than a generic fallback.
+The focus is on what happens when the pipeline *can't* confidently answer: when retrieval returns nothing useful, when the model hedges, or when the user is upset and asking to cancel their account. Each of these cases has a specific, designed response path.
 
-In a support context, these failure cases are where the business impact lives. A bot that handles a cancellation request the same way it handles a how-to question will lose that customer. A bot that confidently presents a wrong answer erodes trust faster than having no bot at all. The failure handling in this pipeline is designed to deflect tickets when the bot can help, preserve trust when it can't, and route to a human immediately when the situation calls for it.
+In a support context, a bot that handles a cancellation request the same way it handles a how-to question will lose that customer. A bot that confidently presents a wrong answer erodes trust faster than having no bot at all. So the pipeline is built to deflect tickets when the bot can help, preserve trust when it can't, and route to a human when the situation calls for it.
 
 ## Screenshots
 
@@ -55,7 +52,7 @@ The widget renders each response type differently based on the pipeline's routin
 
 ## How it works
 
-Every question is classified into one of five categories — **answerable**, **nonsense**, **irrelevant**, **out-of-scope**, or **high-stakes** — and routed to a purpose-built handler. Only answerable and high-stakes queries go through retrieval; the rest get static responses immediately without wasting compute.
+Every question is classified into one of five categories (**answerable**, **nonsense**, **irrelevant**, **out-of-scope**, or **high-stakes**) and routed to a purpose-built handler. Only answerable and high-stakes queries go through retrieval; the rest get static responses immediately without wasting compute.
 
 For queries that go through retrieval, the pipeline applies two confidence gates before presenting an answer:
 
@@ -64,7 +61,7 @@ For queries that go through retrieval, the pipeline applies two confidence gates
 
 After generation, a **self-critique** step assesses whether the answer fully, partially, or cannot address the question. This determines whether to offer human escalation and how much confidence to convey to the user.
 
-**High-stakes queries** (cancellations, billing disputes, complaints) bypass normal generation entirely. They get an empathetic acknowledgment with a structured retention offer and escalation path — because a standard RAG answer to "I want to cancel my account" is the wrong response.
+**High-stakes queries** (cancellations, billing disputes, complaints) bypass normal generation entirely. They get an empathetic acknowledgment with a structured retention offer and escalation path. A standard RAG answer to "I want to cancel my account" is the wrong response.
 
 ## Pipeline
 
@@ -156,7 +153,7 @@ The pipeline is evaluated against the [WixQA benchmark](https://huggingface.co/d
 | Faithfulness | **4.80 / 5** *(n=50)* | Answers are almost entirely grounded in retrieved content, not hallucinated |
 | Relevancy | **4.76 / 5** *(n=50)* | Answers consistently address what was actually asked |
 
-The hit rate ceiling at 0.71 is a genuine finding: the remaining 29% are KB coverage gaps and vocabulary mismatches that persisted across all seven experiments. The most impactful next steps would be hybrid retrieval (dense + BM25) and a larger embedding model.
+The 71% hit rate held steady across all seven experiments. The remaining 29% are KB coverage gaps and vocabulary mismatches that retrieval tuning alone won't close. That's exactly the scenario the confidence gates and failure paths above are built for: rather than trying to squeeze more accuracy out of retrieval, the system recognizes low-confidence results and routes them to clarifying questions, disclaimers, or human escalation.
 
 ## What changes for production
 

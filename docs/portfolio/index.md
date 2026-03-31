@@ -13,6 +13,6 @@ Real projects showing how I think about AI feature development. The focus is on 
 
     ---
 
-    A customer support RAG pipeline built around what happens when the AI *can't* answer confidently. Five-category query classification, two-stage retrieval with confidence gates, self-critique, and designed failure paths for every edge case. Built with OpenAI, ChromaDB, FastAPI, and a custom chat widget.
+    A customer support RAG pipeline built around what happens when the AI *can't* answer confidently. The design goal isn't maximum retrieval accuracy. It's making sure every failure mode has a specific, intentional response path. Five-category classification, confidence gates, self-critique, and human escalation routing. Built with OpenAI, ChromaDB, FastAPI, and a custom chat widget.
 
 </div>
