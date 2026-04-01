@@ -14,6 +14,12 @@ description: A customer support RAG pipeline with designed failure paths, confid
 
     **Evaluation** *(7 experiments, n=200 retrieval / n=50 generation)*: 71% hit rate · 4.80/5 faithfulness · 4.76/5 relevancy
 
+## Video Walkthrough
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 800px;">
+  <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://www.tella.tv/video/vid_cmneo6b35006306jzay6dasfh/embed?b=0&title=0&a=0&loop=0&t=0&muted=0&wt=0&o=0" allowfullscreen allowtransparency></iframe>
+</div>
+
 ## Overview
 
 A customer support RAG pipeline built over the [Wix Help Center dataset](https://huggingface.co/datasets/Wix/WixQA). Every stage (chunking, retrieval, reranking, classification, generation, and evaluation) is implemented from scratch so the design decisions are visible and auditable.
