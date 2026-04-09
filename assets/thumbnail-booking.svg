@@ -1,0 +1,48 @@
+<svg width="1200" height="675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#1e3d32"/>
+    </pattern>
+    <radialGradient id="glowCenter" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2d6a4f" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#0d1a17" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="#0d1a17"/>
+  <rect width="1200" height="675" fill="url(#dots)"/>
+  <rect width="1200" height="675" fill="url(#glowCenter)"/>
+
+
+  <!-- Calendar icon — centered in space above text (text top ~316, icon center at 158) -->
+  <rect x="555" y="118" width="90" height="80" rx="8" fill="none" stroke="#2d6a4f" stroke-width="2.5"/>
+  <rect x="555" y="118" width="90" height="28" rx="8" fill="#2d6a4f"/>
+  <rect x="555" y="136" width="90" height="10" fill="#2d6a4f"/>
+  <rect x="572" y="109" width="8" height="20" rx="4" fill="#74b896"/>
+  <rect x="620" y="109" width="8" height="20" rx="4" fill="#74b896"/>
+  <circle cx="576" cy="168" r="4.5" fill="#2d6a4f"/>
+  <circle cx="600" cy="168" r="4.5" fill="#74b896"/>
+  <circle cx="624" cy="168" r="4.5" fill="#2d6a4f"/>
+  <circle cx="576" cy="186" r="4.5" fill="#2d6a4f"/>
+  <circle cx="600" cy="186" r="4.5" fill="#2d6a4f"/>
+  <circle cx="624" cy="186" r="4.5" fill="#2d6a4f"/>
+
+  <!-- Headline -->
+  <text x="600" y="385" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="96" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="-2">Book a Free Call</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="455" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="44" font-weight="400" fill="#74b896" text-anchor="middle">Alfred Persson</text>
+
+  <!-- Decorative arcs -->
+  <g opacity="0.08">
+    <circle cx="120" cy="337" r="200" fill="none" stroke="#74b896" stroke-width="1.5"/>
+    <circle cx="120" cy="337" r="140" fill="none" stroke="#74b896" stroke-width="1.5"/>
+    <circle cx="120" cy="337" r="80" fill="none" stroke="#74b896" stroke-width="1.5"/>
+  </g>
+  <g opacity="0.08">
+    <circle cx="1080" cy="337" r="200" fill="none" stroke="#74b896" stroke-width="1.5"/>
+    <circle cx="1080" cy="337" r="140" fill="none" stroke="#74b896" stroke-width="1.5"/>
+    <circle cx="1080" cy="337" r="80" fill="none" stroke="#74b896" stroke-width="1.5"/>
+  </g>
+</svg>

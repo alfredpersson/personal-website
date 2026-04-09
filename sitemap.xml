@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://www.alfredpersson.com/</loc>
+         <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+         <loc>https://www.alfredpersson.com/blog/</loc>
+         <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+         <loc>https://www.alfredpersson.com/blog/2026/03/25/the-ai-feature-maturity-ladder/</loc>
+         <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+         <loc>https://www.alfredpersson.com/portfolio/</loc>
+         <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+         <loc>https://www.alfredpersson.com/portfolio/projects/rag-support-assistant/</loc>
+         <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+         <loc>https://www.alfredpersson.com/blog/archive/2026/</loc>
+         <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+         <loc>https://www.alfredpersson.com/blog/category/ai-strategy/</loc>
+         <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+         <loc>https://www.alfredpersson.com/blog/category/product-engineering/</loc>
+         <lastmod>2026-04-09</lastmod>
+    </url>
+</urlset>
