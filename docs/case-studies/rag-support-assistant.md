@@ -32,9 +32,9 @@ In a support context, a bot that handles a cancellation request the same way it 
 
 The support widget lives in the corner of a mock SaaS dashboard:
 
-![Mock SaaS dashboard with closed chat widget](../../assets/rag-support-assistant/dashboard_closed_widget.png)
+![Mock SaaS dashboard with closed chat widget](../assets/rag-support-assistant/dashboard_closed_widget.png)
 
-![Dashboard with chat widget open](../../assets/rag-support-assistant/dashboard_open_widget.png)
+![Dashboard with chat widget open](../assets/rag-support-assistant/dashboard_open_widget.png)
 
 ### Response types
 
@@ -42,19 +42,19 @@ The widget renders each response type differently based on the pipeline's routin
 
 **Fully answered** — a grounded answer with step-by-step instructions and source article links:
 
-![Fully answered query with source links](../../assets/rag-support-assistant/fully_answered.png){ width="400" }
+![Fully answered query with source links](../assets/rag-support-assistant/fully_answered.png){ width="400" }
 
 **Follow-up question** — when retrieval finds nothing relevant, the bot asks a clarifying question instead of guessing:
 
-![Follow-up clarifying question](../../assets/rag-support-assistant/followup_question.png){ width="400" }
+![Follow-up clarifying question](../assets/rag-support-assistant/followup_question.png){ width="400" }
 
 **High-stakes escalation** — sensitive queries (cancellations, billing disputes) get an empathetic response with a path to a human agent:
 
-![High-stakes query with empathetic response and escalation](../../assets/rag-support-assistant/high_stakes.png){ width="400" }
+![High-stakes query with empathetic response and escalation](../assets/rag-support-assistant/high_stakes.png){ width="400" }
 
 **Low confidence** — the answer is shown with a disclaimer and no source links:
 
-![Low confidence response with disclaimer](../../assets/rag-support-assistant/low_confidence.png){ width="400" }
+![Low confidence response with disclaimer](../assets/rag-support-assistant/low_confidence.png){ width="400" }
 
 ## How it works
 

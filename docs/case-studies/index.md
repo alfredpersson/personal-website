@@ -9,7 +9,7 @@ Real projects showing how I think about AI feature development. The focus is on 
 
 <div class="grid cards" markdown>
 
--   [RAG Support Assistant](projects/rag-support-assistant.md)
+-   [RAG Support Assistant](rag-support-assistant.md)
 
     ---
 

@@ -3,12 +3,11 @@ site_description: Freelance AI Product Engineer — Helping SaaS teams ship AI f
 site_url: https://www.alfredpersson.com
 
 nav:
-  - Home:
-    - About: index.md
+  - Home: index.md
   - Case Studies:
-    - Overview: portfolio/index.md
-    - Projects:
-      - portfolio/projects/rag-support-assistant.md
+    - case-studies/index.md
+    - case-studies/rag-support-assistant.md
+  #- AI Feature Audit: audit/index.md
   - Blog:
     - blog/index.md
 

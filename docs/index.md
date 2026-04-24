@@ -1,5 +1,5 @@
 ---
-title: About Me
+title: Home
 description: Freelance AI Product Engineer helping B2B SaaS teams ship AI features that get adopted. UX + engineering background, 5 years of distributed systems experience.
 keywords: Alfred Persson, AI product engineer, freelance, SaaS AI features, RAG, LLM integration, UX engineering
 author: Alfred Persson
@@ -93,7 +93,7 @@ What I've found is that the difference between an AI feature that gets adopted a
 
 ## How I work
 
-:material-magnify: **AI Feature Audit** · A structured review of an existing AI feature. What's technically broken, what's behaviorally broken, and what to fix first. You get a prioritized list of changes, not a 40-page report. Usually 1–2 weeks.
+:material-magnify: **AI Feature Audit** · A structured review of an existing AI feature. What's technically broken, what's behaviorally broken, and what to fix first. You get a findings report with a maturity score, prioritized fixes, and an advancement roadmap, plus a walkthrough session with your team. Usually 2 weeks.
 
 :material-wrench: **Feature Build** · Architecture, retrieval, generation, API, and a clear integration spec that defines exactly how the feature should behave in the UI. Typically 4–8 weeks.
 
@@ -113,7 +113,7 @@ What I've found is that the difference between an AI feature that gets adopted a
     Both. Some teams bring me in part-time to build and iterate alongside their existing engineers. Others prefer a fixed-scope engagement: build this feature, ship it, hand it off. We can figure out what makes sense during the intro call.
 
 ??? note "What does a typical engagement look like?"
-    Depends on the scope. A feature audit takes 1–2 weeks. A new AI feature build is typically 4–8 weeks from architecture to deployment. Ongoing integration work is usually 2–3 days per week. We start with a free intro call to scope the work and make sure it's a good fit.
+    Depends on the scope. A feature audit takes 2 weeks. A new AI feature build is typically 4–8 weeks from architecture to deployment. Ongoing integration work is usually 2–3 days per week. We start with a free intro call to scope the work and make sure it's a good fit.
 
 ??? note "What's your tech stack?"
     Python, FastAPI, OpenAI, Claude, LangChain/pydantic-ai, ChromaDB, Pinecone, pgvector, sentence-transformers, PostgreSQL, and Docker.
