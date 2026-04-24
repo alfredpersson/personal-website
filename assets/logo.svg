@@ -1,0 +1,7 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Open arc with floating dot -->
+  <g fill="none" stroke="white" stroke-width="52" stroke-linecap="round">
+    <path d="M 310 420 A 170 170 0 1 1 420 310"/>
+  </g>
+  <circle cx="382" cy="382" r="36" fill="white"/>
+</svg>
