@@ -68,9 +68,20 @@
     max-width: 1200px;
     margin: 0 auto;
   }
-  
+
   .profile-image {
     width: 320px;
     height: 320px;
   }
+}
+
+/* Hero subtitle — sits under the H1, subdued so the title leads */
+.md-typeset .hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--md-default-fg-color);
+  opacity: 0.85;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0;
 }

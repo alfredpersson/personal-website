@@ -27,7 +27,7 @@ image: https://www.alfredpersson.com/assets/thumbnail-website.jpg
 
 # Helping SaaS teams ship AI features users actually adopt
 
-### Most AI features fail at adoption, not accuracy
+### Most AI features fail at adoption, not accuracy { .hero-subtitle }
 
 - Your AI feature is live but users aren't really engaging with it
 
@@ -39,7 +39,7 @@ image: https://www.alfredpersson.com/assets/thumbnail-website.jpg
 
 - You want AI that handles failure well, not just the happy path
 
-[Book Free Intro Call :material-arrow-top-right:](https://calendly.com/alfred-persson/intro){ .md-button .md-button--primary }
+[Book Free Intro Call :material-arrow-right:](https://calendly.com/alfred-persson/intro){ .md-button .md-button--primary }
 
 </div>
 
@@ -57,39 +57,19 @@ Hi, I'm Alfred. I'm a freelance AI product engineer and I work with B2B SaaS tea
 
 Most of my clients come to me because they've shipped an AI feature that isn't getting the adoption they expected. Users ignore it, work around it, or don't trust it. Usually it's not obvious whether that's a technical problem or a product problem. In my experience it tends to be both, and the fix lives somewhere in between.
 
-I studied interaction technology and design at Umeå University, a programme that combines software engineering with UX and usability. After that I moved into backend and distributed systems, where I spent five years building blockchain infrastructure that had to stay reliable under unpredictable conditions. That mix of understanding what users need and knowing how to build reliable systems is what I bring to AI work now.
+I studied interaction technology and design at Umeå University, a programme that combines software engineering with UX and usability. After that I moved into backend engineering, where I spent five years building blockchain applications. That meant code I couldn't patch after deployment and real users moving real money, the kind of software that has to stay reliable under unpredictable conditions. That mix of understanding what users need and knowing how to build reliable systems is what I bring to AI work now.
 
 What I've found is that the difference between an AI feature that gets adopted and one that gets ignored usually comes down to how it handles uncertainty and whether it fits how users actually think. Those are the decisions I focus on.
 
 ## Why work with me?
 
-<div class="grid cards" markdown>
+:material-palette-swatch: **UX + Engineering Background** · I studied interaction design alongside software engineering. I build features that fit how users actually think, not just how the system works. That means fewer "it works but nobody uses it" situations.
 
--   :material-palette-swatch:{ .lg .middle } UX + Engineering Background
+:material-server-network: **5 Years in Production Systems** · I spent five years building blockchain applications. I know what it takes to ship software that has to stay reliable under real conditions, not just pass a demo.
 
-    ---
+:material-layers-triple: **Pipeline to Integration Spec** · I build the retrieval pipeline, LLM orchestration, and API layer. I also spec how each response type should behave in the UI, including confidence states, escalation flows, and error handling.
 
-    I studied interaction design alongside software engineering. I build features that fit how users actually think, not just how the system works. That means fewer "it works but nobody uses it" situations.
-
--   :material-server-network:{ .lg .middle } 5 Years in Production Systems
-
-    ---
-
-    I spent five years building distributed systems and blockchain infrastructure. I know what it takes to ship software that has to stay reliable under real conditions, not just pass a demo.
-
--   :material-layers-triple:{ .lg .middle } Pipeline to Integration Spec
-
-    ---
-
-    I build the retrieval pipeline, LLM orchestration, and API layer. I also spec how each response type should behave in the UI, including confidence states, escalation flows, and error handling.
-
--   :material-target:{ .lg .middle } Focused on Adoption, Not Just Accuracy
-
-    ---
-
-    Accuracy metrics don't matter if users don't trust the output. I focus on how the feature handles failure and communicates uncertainty, so users always have a clear path forward.
-
-</div>
+:material-target: **Focused on Adoption, Not Just Accuracy** · Accuracy metrics don't matter if users don't trust the output. I focus on how the feature handles failure and communicates uncertainty, so users always have a clear path forward.
 
 ## How I work
 
@@ -107,7 +87,7 @@ What I've found is that the difference between an AI feature that gets adopted a
     B2B SaaS products with user-facing AI features. Things like support bots, AI-assisted workflows, intelligent search, document processing. The common thread is that there's an AI component that end users interact with directly, and it needs to work well enough that people actually trust and use it.
 
 ??? note "What's your background?"
-    Short version: interaction design and software engineering at Umeå University, then five years building distributed systems and blockchain infrastructure. The combination means I think about both the pipeline and the person using it, which is where most AI features break down.
+    Short version: interaction design and software engineering at Umeå University, then five years building blockchain applications. The combination means I think about both the pipeline and the person using it, which is where most AI features break down.
 
 ??? note "Do you work as a contractor or on fixed-scope projects?"
     Both. Some teams bring me in part-time to build and iterate alongside their existing engineers. Others prefer a fixed-scope engagement: build this feature, ship it, hand it off. We can figure out what makes sense during the intro call.
@@ -118,18 +98,9 @@ What I've found is that the difference between an AI feature that gets adopted a
 ??? note "What's your tech stack?"
     Python, FastAPI, OpenAI, Claude, LangChain/pydantic-ai, ChromaDB, Pinecone, pgvector, sentence-transformers, PostgreSQL, and Docker.
 
-??? note "How do you communicate progress?"
-    Weekly async updates with a clear summary of what shipped, what's next, and any decisions that need your input. I'm on Slack or whatever channel your team uses for day-to-day questions. No surprise invoices or scope creep. If something changes, we talk about it first.
 
+## :material-coffee: Let's grab a virtual coffee
 
-<div class="grid cards" style="margin-top: 3rem" markdown>
+Want to see if we're a good fit? Let's have a chat. Book a free 30-minute intro call and we can talk through what you're working on.
 
--   :material-coffee:{ .lg .middle } Let's grab a virtual coffee
-
-    ---
-
-    Want to see if we're a good fit? Let's have a chat. Book a free 30-minute intro call and we can talk through what you're working on.
-
-    [Book Free Intro Call :material-arrow-top-right:](https://calendly.com/alfred-persson/intro){ .md-button .md-button--primary }
-
-</div>
+[Book Free Intro Call :material-arrow-right:](https://calendly.com/alfred-persson/intro){ .md-button .md-button--primary }

@@ -95,10 +95,10 @@ flowchart TB
   CRITIQUE -- "PARTIAL" --> PA["Answer + soft escalation"]
   CRITIQUE -- "FULLY_ANSWERED" --> FA["Answer + sources"]
 
-  classDef llm       fill:#d4edda,stroke:#2d6a4f,color:#0f1f1c
-  classDef gate      fill:#f3f4f6,stroke:#0f1f1c,color:#0f1f1c
-  classDef endpoint  fill:#2d6a4f,stroke:#0f1f1c,color:#ffffff
-  classDef io        fill:#74b896,stroke:#2d6a4f,color:#0f1f1c
+  classDef llm       fill:#E8C9A8,stroke:#C77B3D,color:#1B2A4E
+  classDef gate      fill:#F7F2E7,stroke:#1B2A4E,color:#1B2A4E
+  classDef endpoint  fill:#F7F2E7,stroke:#1B2A4E,color:#1B2A4E
+  classDef io        fill:#FBF8F1,stroke:#D9D2C3,color:#1B2A4E
 
   class CLF,QR,GEN llm
   class REL,CONF,CRITIQUE gate

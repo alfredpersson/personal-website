@@ -32,7 +32,7 @@ The deeper constraint is structural. Most B2B SaaS products have core workflows 
 Which interface fits an AI feature depends on two things: whether the user's intent is precise or exploratory, and whether the action is ideally initiated by the user or by the system. Crossing those axes gives four options: on-demand actions, inline suggestions, surfaced insights, and chat.
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'quadrant1Fill':'#b9c8d4','quadrant2Fill':'#c1d1b8','quadrant3Fill':'#e1d4b2','quadrant4Fill':'#dcb9a3','quadrant1TextFill':'#0f1f1c','quadrant2TextFill':'#0f1f1c','quadrant3TextFill':'#0f1f1c','quadrant4TextFill':'#0f1f1c','quadrantXAxisTextFill':'#0f1f1c','quadrantYAxisTextFill':'#0f1f1c','quadrantTitleFill':'#0f1f1c','quadrantInternalBorderStrokeFill':'#0f1f1c','quadrantExternalBorderStrokeFill':'#0f1f1c'}}}%%
+%%{init: {'theme':'base', 'themeVariables': {'quadrant1Fill':'#D9D2C3','quadrant2Fill':'#D9D2C3','quadrant3Fill':'#D9D2C3','quadrant4Fill':'#E8C9A8','quadrant1TextFill':'#1B2A4E','quadrant2TextFill':'#1B2A4E','quadrant3TextFill':'#1B2A4E','quadrant4TextFill':'#1B2A4E','quadrantXAxisTextFill':'#1B2A4E','quadrantYAxisTextFill':'#1B2A4E','quadrantTitleFill':'#1B2A4E','quadrantInternalBorderStrokeFill':'#1B2A4E','quadrantExternalBorderStrokeFill':'#1B2A4E'}}}%%
 quadrantChart
     x-axis Precise intent --> Exploratory intent
     y-axis User-initiated --> System-initiated

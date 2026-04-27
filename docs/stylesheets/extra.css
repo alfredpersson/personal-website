@@ -1,131 +1,243 @@
-/* Light theme custom colors */
+/* =============================================================
+   Brand color system — cream / navy / amber
+   See resources/brand/color_system.md for canonical palette.
+   ============================================================= */
+
+/* Light theme (default) — cream surface, navy text, amber accent */
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color: #0f1f1c;
-  --md-accent-fg-color: #2d6a4f;
+  --md-primary-fg-color: #1B2A4E;
+  --md-primary-bg-color: #F7F2E7;
+  --md-default-bg-color: #F7F2E7;
+  --md-default-fg-color: #1B2A4E;
+  --md-default-fg-color--light: #4A5568;
+  --md-default-fg-color--lighter: #4A5568;
+  --md-accent-fg-color: #C77B3D;
   --md-typeset-a-color: var(--md-accent-fg-color);
-  --md-footer-bg-color: var(--md-primary-fg-color);
+  --md-code-bg-color: #FBF8F1;
 }
 
-/* Dark theme custom colors */
+/* Dark theme (slate) — navy surface, cream text, amber accent */
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #0f1f1c;
-  --md-default-bg-color: #0d1a17;
-  --md-accent-fg-color: #74b896;
+  --md-primary-fg-color: #1B2A4E;
+  --md-primary-bg-color: #F7F2E7;
+  --md-default-bg-color: #1B2A4E;
+  --md-default-fg-color: #F7F2E7;
+  --md-accent-fg-color: #C77B3D;
   --md-typeset-a-color: var(--md-accent-fg-color);
+  --md-code-bg-color: #243558;
 }
 
-/* Dark Theme Custom Button */
+/* Footer + Mermaid vars apply identically across both schemes */
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  --md-footer-bg-color: #1B2A4E;
+  --md-footer-bg-color--dark: #1B2A4E;
+  --md-footer-fg-color: #F7F2E7;
+  --md-footer-fg-color--light: rgba(247, 242, 231, 0.75);
+  --md-footer-fg-color--lighter: rgba(247, 242, 231, 0.45);
+
+  --md-mermaid-edge-color: #1B2A4E;
+  --md-mermaid-node-bg-color: #FBF8F1;
+  --md-mermaid-node-fg-color: #1B2A4E;
+  --md-mermaid-label-bg-color: #FBF8F1;
+  --md-mermaid-label-fg-color: #1B2A4E;
+}
+
+/* =============================================================
+   Headings — solid navy/cream (override Material's faded H1) +
+   slightly heavier weight per brand spec
+   ============================================================= */
+
+.md-typeset h1 {
+  color: var(--md-default-fg-color);
+  font-weight: 600;
+}
+
+.md-typeset h2 {
+  font-weight: 500;
+}
+
+/* =============================================================
+   Buttons
+   ============================================================= */
+
+/* Pill-shaped CTAs — softer than Material's default 0.1rem corners.
+   .md-typeset prefix beats Material's default selector specificity. */
+.md-typeset .md-button {
+  border-radius: 9999px;
+  padding-left: 1.4em;
+  padding-right: 1.4em;
+}
+
+/* Primary CTA — amber filled with cream text, navy on hover. */
+.md-typeset .md-button--primary {
+  background-color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+  color: #F7F2E7 !important;
+}
+
+.md-typeset .md-button--primary:hover,
+.md-typeset .md-button--primary:focus {
+  background-color: #1B2A4E;
+  border-color: #1B2A4E;
+  color: #F7F2E7 !important;
+}
+
+/* Dark mode — fill all buttons with accent for visibility */
 [data-md-color-scheme="slate"] .md-button {
   background-color: var(--md-accent-fg-color);
   border-color: var(--md-accent-fg-color);
+  color: #F7F2E7;
 }
 
-/* Optional: Custom hover effects */
 [data-md-color-scheme="slate"] .md-button:hover {
-  background-color: #ffffff;
-  border-color: #ffffff;
-  color: #000000;
+  background-color: #F7F2E7;
+  border-color: #F7F2E7;
+  color: #1B2A4E;
 }
 
-/* Note admonition color override */
+/* =============================================================
+   Note admonition
+   ============================================================= */
+
 :root {
   --md-admonition-icon--note: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg>');
 }
 
-.md-typeset .note,
+/* Inline note admonitions (`!!! note`) — keep amber-bordered box. */
+.md-typeset .note {
+  border-color: #C77B3D;
+}
+
+.md-typeset .note > .admonition-title {
+  background-color: rgba(199, 123, 61, 0.1);
+  border-color: #C77B3D;
+}
+
+.md-typeset .note > .admonition-title::before {
+  background-color: #C77B3D;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .note {
+  border-color: #C77B3D;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .note > .admonition-title {
+  background-color: rgba(199, 123, 61, 0.15);
+  border-color: #C77B3D;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .note > .admonition-title::before {
+  background-color: #C77B3D;
+}
+
+/* Collapsible notes (`??? note`) — used for the FAQ. Strip the box, use
+   hairline dividers, drop the pencil icon, keep amber chevron. */
 .md-typeset details.note {
-  border-color: #2d6a4f;
+  border: none;
+  border-radius: 0;
+  border-top: 1px solid rgba(27, 42, 78, 0.12);
+  background: transparent;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
 }
 
-.md-typeset .note > .admonition-title,
+.md-typeset details.note:last-of-type {
+  border-bottom: 1px solid rgba(27, 42, 78, 0.12);
+}
+
 .md-typeset details.note > summary {
-  background-color: rgba(45, 106, 79, 0.1);
-  border-color: #2d6a4f;
+  background: transparent;
+  border: none;
+  padding: 1rem 2.5rem 1rem 0;
+  font-weight: 500;
+  color: var(--md-default-fg-color);
 }
 
-.md-typeset .note > .admonition-title::before,
 .md-typeset details.note > summary::before {
-  background-color: #2d6a4f;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .note,
-[data-md-color-scheme="slate"] .md-typeset details.note {
-  border-color: #74b896;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .note > .admonition-title,
-[data-md-color-scheme="slate"] .md-typeset details.note > summary {
-  background-color: rgba(116, 184, 150, 0.1);
-  border-color: #74b896;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .note > .admonition-title::before,
-[data-md-color-scheme="slate"] .md-typeset details.note > summary::before {
-  background-color: #74b896;
+  display: none;
 }
 
 .md-typeset details.note > summary::after {
-  color: #2d6a4f;
+  color: #C77B3D;
+  right: 0.25rem;
 }
 
-[data-md-color-scheme="slate"] .md-typeset details.note > summary::after {
-  color: #74b896;
+.md-typeset details.note[open] > summary {
+  border-bottom: none;
 }
 
-/* Abstract admonition color override */
+.md-typeset details.note > :not(summary) {
+  padding: 0 0 1.25rem;
+}
+
+[data-md-color-scheme="slate"] .md-typeset details.note {
+  border-top-color: rgba(247, 242, 231, 0.12);
+}
+
+[data-md-color-scheme="slate"] .md-typeset details.note:last-of-type {
+  border-bottom-color: rgba(247, 242, 231, 0.12);
+}
+
+/* =============================================================
+   Abstract admonition
+   ============================================================= */
+
 .md-typeset .admonition.abstract,
 .md-typeset details.abstract {
-  border-color: #2d6a4f !important;
+  border-color: #C77B3D !important;
 }
 
 .md-typeset .admonition.abstract:focus-within,
 .md-typeset details.abstract:focus-within {
-  box-shadow: 0 0 0 .2rem rgba(45, 106, 79, 0.1) !important;
+  box-shadow: 0 0 0 .2rem rgba(199, 123, 61, 0.1) !important;
 }
 
 .md-typeset .abstract > .admonition-title,
 .md-typeset .abstract > summary {
-  background-color: rgba(45, 106, 79, 0.1) !important;
+  background-color: rgba(199, 123, 61, 0.1) !important;
 }
 
 .md-typeset .abstract > .admonition-title::before,
 .md-typeset .abstract > summary::before {
-  background-color: #2d6a4f !important;
+  background-color: #C77B3D !important;
 }
 
 .md-typeset .abstract > .admonition-title::after,
 .md-typeset .abstract > summary::after {
-  color: #2d6a4f !important;
+  color: #C77B3D !important;
 }
 
 [data-md-color-scheme="slate"] .md-typeset .admonition.abstract,
 [data-md-color-scheme="slate"] .md-typeset details.abstract {
-  border-color: #74b896 !important;
+  border-color: #C77B3D !important;
 }
 
 [data-md-color-scheme="slate"] .md-typeset .admonition.abstract:focus-within,
 [data-md-color-scheme="slate"] .md-typeset details.abstract:focus-within {
-  box-shadow: 0 0 0 .2rem rgba(116, 184, 150, 0.1) !important;
+  box-shadow: 0 0 0 .2rem rgba(199, 123, 61, 0.15) !important;
 }
 
 [data-md-color-scheme="slate"] .md-typeset .abstract > .admonition-title,
 [data-md-color-scheme="slate"] .md-typeset .abstract > summary {
-  background-color: rgba(116, 184, 150, 0.1) !important;
+  background-color: rgba(199, 123, 61, 0.15) !important;
 }
 
 [data-md-color-scheme="slate"] .md-typeset .abstract > .admonition-title::before,
 [data-md-color-scheme="slate"] .md-typeset .abstract > summary::before {
-  background-color: #74b896 !important;
+  background-color: #C77B3D !important;
 }
 
 [data-md-color-scheme="slate"] .md-typeset .abstract > .admonition-title::after,
 [data-md-color-scheme="slate"] .md-typeset .abstract > summary::after {
-  color: #74b896 !important;
+  color: #C77B3D !important;
 }
 
-/* ===== Audit Page ===== */
+/* =============================================================
+   Audit Page
+   ============================================================= */
 
-/* Override MkDocs container spacing on audit page */
 .md-main__inner:has(.audit-page) {
   margin-top: 0.5rem;
 }
@@ -139,7 +251,6 @@
   margin: 0 auto;
 }
 
-/* Uppercase label */
 .audit-label {
   font-size: 0.75rem;
   font-weight: 600;
@@ -150,7 +261,6 @@
   margin-bottom: 0;
 }
 
-/* Hero */
 .audit-hero {
   padding: 1rem 0 0.75rem;
   max-width: 720px;
@@ -166,7 +276,6 @@
   color: var(--md-default-fg-color) !important;
 }
 
-/* All h2 headings on the audit page should be full contrast */
 .audit-page h2 {
   color: var(--md-default-fg-color) !important;
 }
@@ -174,13 +283,13 @@
 .audit-subtitle {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: rgba(0, 0, 0, 0.55);
+  color: #4A5568;
   margin-top: 0;
   margin-bottom: 1.25rem;
 }
 
 [data-md-color-scheme="slate"] .audit-subtitle {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(247, 242, 231, 0.65);
 }
 
 .audit-hide-mobile {
@@ -193,7 +302,6 @@
   }
 }
 
-/* Button row */
 .audit-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -207,23 +315,20 @@
   gap: 1rem;
 }
 
-/* Horizontal rules between sections */
 .audit-page hr {
   margin: 0;
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  border-top: 1px solid #D9D2C3;
 }
 
 [data-md-color-scheme="slate"] .audit-page hr {
-  border-top-color: rgba(255, 255, 255, 0.07);
+  border-top-color: rgba(217, 210, 195, 0.2);
 }
 
-/* Prose-width constraint for text-heavy sections */
 .audit-prose {
   max-width: 720px;
 }
 
-/* Two-column layout for paired sections */
 .audit-two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -239,7 +344,6 @@
   margin-top: 0;
 }
 
-/* Sections */
 .audit-section {
   padding: 1rem 0;
 }
@@ -248,7 +352,6 @@
   margin-top: 0;
 }
 
-/* Dimension cards */
 .audit-dimensions {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -264,14 +367,14 @@
   display: flex;
   gap: 1rem;
   padding: 1.25rem 1.5rem;
-  background: rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0, 0, 0, 0.07);
+  background: #FBF8F1;
+  border: 1px solid #D9D2C3;
   border-radius: 0.5rem;
 }
 
 [data-md-color-scheme="slate"] .audit-dim {
-  background: rgba(255, 255, 255, 0.025);
-  border-color: rgba(255, 255, 255, 0.07);
+  background: rgba(247, 242, 231, 0.04);
+  border-color: rgba(217, 210, 195, 0.2);
 }
 
 .audit-dim-icon {
@@ -281,13 +384,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(45, 106, 79, 0.1);
+  background: rgba(199, 123, 61, 0.12);
   border-radius: 0.5rem;
   color: var(--md-accent-fg-color);
 }
 
 [data-md-color-scheme="slate"] .audit-dim-icon {
-  background: rgba(116, 184, 150, 0.1);
+  background: rgba(199, 123, 61, 0.18);
 }
 
 .audit-dim-icon p {
@@ -317,14 +420,13 @@
   margin-bottom: 0;
   font-size: 0.875rem;
   line-height: 1.6;
-  color: rgba(0, 0, 0, 0.55);
+  color: #4A5568;
 }
 
 [data-md-color-scheme="slate"] .audit-dim-text p:last-child {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(247, 242, 231, 0.65);
 }
 
-/* Timeline */
 .audit-timeline {
   position: relative;
   padding-left: 36px;
@@ -338,11 +440,11 @@
   top: 6px;
   bottom: 12px;
   width: 1px;
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: #D9D2C3;
 }
 
 [data-md-color-scheme="slate"] .audit-timeline::before {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(217, 210, 195, 0.2);
 }
 
 .audit-phase {
@@ -354,7 +456,6 @@
   padding-bottom: 0;
 }
 
-/* Outer ring */
 .audit-phase::before {
   content: '';
   position: absolute;
@@ -364,7 +465,7 @@
   height: 22px;
   border-radius: 50%;
   border: 2px solid var(--md-accent-fg-color);
-  background-color: var(--md-default-bg-color, #fff);
+  background-color: var(--md-default-bg-color, #F7F2E7);
   box-sizing: border-box;
   z-index: 1;
 }
@@ -373,7 +474,6 @@
   background-color: var(--md-default-bg-color);
 }
 
-/* Inner dot */
 .audit-phase::after {
   content: '';
   position: absolute;
@@ -410,14 +510,13 @@
 .audit-phase li {
   font-size: 0.875rem;
   line-height: 1.7;
-  color: rgba(0, 0, 0, 0.55);
+  color: #4A5568;
 }
 
 [data-md-color-scheme="slate"] .audit-phase li {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(247, 242, 231, 0.65);
 }
 
-/* Checkmark list */
 .audit-checks ul {
   list-style: none;
   padding-left: 0;
@@ -445,9 +544,8 @@
   mask-size: contain;
 }
 
-/* Pricing card */
 .audit-pricing-card {
-  border: 2px solid rgba(45, 106, 79, 0.2);
+  border: 2px solid rgba(199, 123, 61, 0.3);
   border-radius: 0.75rem;
   padding: 2rem;
   max-width: 640px;
@@ -455,7 +553,7 @@
 }
 
 [data-md-color-scheme="slate"] .audit-pricing-card {
-  border-color: rgba(116, 184, 150, 0.2);
+  border-color: rgba(199, 123, 61, 0.4);
 }
 
 .audit-pricing-label {
@@ -503,16 +601,15 @@
 
 .audit-pricing-card > p:last-child {
   font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.55);
+  color: #4A5568;
   line-height: 1.7;
   margin-bottom: 0;
 }
 
 [data-md-color-scheme="slate"] .audit-pricing-card > p:last-child {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(247, 242, 231, 0.65);
 }
 
-/* CTA */
 .audit-cta {
   text-align: center;
   padding: 1rem 0;
@@ -536,7 +633,6 @@
   justify-content: center;
 }
 
-/* Mobile */
 @media screen and (max-width: 768px) {
   .audit-hero {
     padding: 1.5rem 0 1rem;
@@ -568,9 +664,17 @@
   }
 }
 
-/* Center mermaid diagrams */
+/* =============================================================
+   Mermaid — diagrams sit on a cream backdrop in both schemes,
+   matching the brand spec ("diagrams: cream backgrounds always")
+   and keeping axis labels / floating text readable in dark mode.
+   ============================================================= */
+
 .md-typeset .mermaid {
   text-align: center;
+  background-color: #F7F2E7;
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
 }
 
 .md-typeset .mermaid svg {
@@ -578,11 +682,28 @@
   margin: 0 auto;
 }
 
-/* Footer Section */
-.md-footer {
-  background-color: #0d1a17;
+/* Slate mode: Material flips Mermaid's text colors to cream, which kills
+   contrast on our cream-surfaced diagrams. Force navy on the labels
+   that sit inside / on the cream backdrop. */
+[data-md-color-scheme="slate"] .mermaid .nodeLabel,
+[data-md-color-scheme="slate"] .mermaid foreignObject span,
+[data-md-color-scheme="slate"] .mermaid .edgeLabel,
+[data-md-color-scheme="slate"] .mermaid text {
+  color: #1B2A4E !important;
+  fill: #1B2A4E !important;
 }
 
-.md-footer-meta {
-  background-color: #0f1f1c;
+[data-md-color-scheme="slate"] .mermaid .edgeLabel {
+  background-color: #FBF8F1 !important;
+}
+
+/* =============================================================
+   Header buttons — keep focus ring keyboard-only so touch taps
+   don't leave a stuck amber outline on the theme toggle.
+   ============================================================= */
+
+.md-header__button:focus:not(:focus-visible),
+.md-header__option [type="checkbox"]:focus:not(:focus-visible) + .md-header__button {
+  outline: none;
+  box-shadow: none;
 }
