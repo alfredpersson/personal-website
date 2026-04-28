@@ -55,11 +55,11 @@ image: https://www.alfredpersson.com/assets/thumbnail-website.jpg
 
 Hi, I'm Alfred. I'm a freelance AI product engineer and I work with B2B SaaS teams to build AI features that actually get used.
 
-Most of my clients come to me because they've shipped an AI feature that isn't getting the adoption they expected. Users ignore it, work around it, or don't trust it. Usually it's not obvious whether that's a technical problem or a product problem. In my experience it tends to be both, and the fix lives somewhere in between.
+If you've shipped an AI feature and adoption isn't where you hoped, that's where I come in. Users ignore it, work around it, or don't trust the output. Whether that's a technical problem or a product problem is rarely obvious. Usually it's both, and the fix lives somewhere in between.
 
 I studied interaction technology and design at Umeå University, a programme that combines software engineering with UX and usability. After that I moved into backend engineering, where I spent five years building blockchain applications. That meant code I couldn't patch after deployment and real users moving real money, the kind of software that has to stay reliable under unpredictable conditions. That mix of understanding what users need and knowing how to build reliable systems is what I bring to AI work now.
 
-What I've found is that the difference between an AI feature that gets adopted and one that gets ignored usually comes down to how it handles uncertainty and whether it fits how users actually think. Those are the decisions I focus on.
+The difference between an AI feature that gets adopted and one that gets ignored usually comes down to how it handles uncertainty and whether it fits how users actually think. Those are the decisions I focus on.
 
 ## Why work with me?
 
@@ -90,7 +90,7 @@ What I've found is that the difference between an AI feature that gets adopted a
     Short version: interaction design and software engineering at Umeå University, then five years building blockchain applications. The combination means I think about both the pipeline and the person using it, which is where most AI features break down.
 
 ??? note "Do you work as a contractor or on fixed-scope projects?"
-    Both. Some teams bring me in part-time to build and iterate alongside their existing engineers. Others prefer a fixed-scope engagement: build this feature, ship it, hand it off. We can figure out what makes sense during the intro call.
+    Both. Part-time embedded work makes sense if you have ongoing AI work and want me iterating alongside your engineers. A fixed-scope engagement makes sense if you want a specific feature built, shipped, and handed off. We can figure out what fits during the intro call.
 
 ??? note "What does a typical engagement look like?"
     Depends on the scope. A feature audit takes 2 weeks. A new AI feature build is typically 4–8 weeks from architecture to deployment. Ongoing integration work is usually 2–3 days per week. We start with a free intro call to scope the work and make sure it's a good fit.
