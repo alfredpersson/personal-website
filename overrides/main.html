@@ -4,5 +4,8 @@
   {% if page and page.meta and page.meta.image %}
     <meta property="og:image" content="{{ page.meta.image }}" />
   {% endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,600;6..72,800&display=swap" rel="stylesheet">
   {{ super() }}
 {% endblock %}

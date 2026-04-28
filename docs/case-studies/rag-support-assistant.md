@@ -166,6 +166,6 @@ The 71% hit rate held steady across all seven experiments. The remaining 29% are
 
     Want to see if we're a match? Let's have a chat and find out. Schedule a free 30-minute intro call to discuss your AI challenges and explore how we can work together.
 
-    [Book Free Intro Call :material-arrow-top-right:](https://calendly.com/alfred-persson/intro){ .md-button .md-button--primary }
+    [Book Free Intro Call :material-arrow-right:](https://calendly.com/alfred-persson/intro){ .md-button .md-button--primary }
 
 </div>

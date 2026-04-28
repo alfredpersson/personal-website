@@ -108,6 +108,6 @@ If the chat widget has to stay for buyer optics or investor demos, leave it in p
 
     I run an AI Feature Audit that evaluates your feature across five dimensions: Product-Journey Fit, UX and Trust, Output Quality, Measurement and Feedback, and Ops and Ownership. Interface fit is often the first bottleneck, but it is rarely the only one. You get a findings report with a maturity score, prioritized fixes, and an advancement roadmap, plus a walkthrough session with your team.
 
-    [Book Free Intro Call :material-arrow-top-right:](https://calendly.com/alfred-persson/intro){ .md-button .md-button--primary }
+    [Book Free Intro Call :material-arrow-right:](https://calendly.com/alfred-persson/intro){ .md-button .md-button--primary }
 
 </div>
