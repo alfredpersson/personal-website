@@ -77,7 +77,7 @@ The difference between an AI feature that gets adopted and one that gets ignored
 
 :material-sync: **Integration & Iteration** · I embed into your team part-time (usually 2–3 days a week) to build, ship, and refine AI features alongside your existing engineers. Good for teams that have ongoing AI work but not enough in-house experience to move fast.
 
-:material-chart-line: **Observability & Improvement** · Setting up evaluation frameworks so you can measure whether your AI feature is actually helping users. Includes metrics, tracing, and a feedback loop you can use after I'm gone.
+:material-chart-line: **Evaluation & Measurement** · Most teams iterating on prompts have no way to tell if a change actually improved anything. I run error analysis on real traces with your domain expert to build a failure taxonomy, then ship the deterministic asserts and LLM judges that catch each failure mode in CI. Available as a one-week starter that ships the taxonomy and the first deterministic asserts, or a longer engagement that delivers a validated judge suite, annotation interface, and CI loop your team owns after handoff.
 
 ## Frequently asked questions
 
