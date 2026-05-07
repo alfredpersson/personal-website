@@ -521,6 +521,9 @@ requires-dist = [
     { name = "weasyprint", specifier = ">=63.0" },
 ]
 
+[package.metadata.requires-dev]
+dev = []
+
 [[package]]
 name = "packaging"
 version = "24.2"

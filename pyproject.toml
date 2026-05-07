@@ -9,3 +9,6 @@ dependencies = [
     "reportlab>=4.4",
     "weasyprint>=63.0",
 ]
+
+[dependency-groups]
+dev = []

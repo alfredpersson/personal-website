@@ -98,3 +98,5 @@ site/
 # exclude data from source control by default
 # /data/
 resources/
+.playwright-mcp/
+.claude/

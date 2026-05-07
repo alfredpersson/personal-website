@@ -105,6 +105,60 @@
   padding-right: 1.4em;
 }
 
+/* Breathing room around CTA paragraphs so buttons don't crowd surrounding text. */
+.md-typeset p:has(.md-button) {
+  margin-top: 1.75em;
+  margin-bottom: 1.75em;
+}
+
+/* Horizontal gap between adjacent CTA buttons. */
+.md-typeset .md-button + .md-button {
+  margin-left: 0.5rem;
+}
+
+/* Bio block — photo and prose as side-by-side columns. */
+.md-typeset .bio-block {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 1rem 0;
+}
+
+.md-typeset .bio-block > p {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.md-typeset .bio-text {
+  flex: 1;
+}
+
+.md-typeset .bio-text p:first-child {
+  margin-top: 0;
+}
+
+.md-typeset .bio-text p:last-child {
+  margin-bottom: 0;
+}
+
+.md-typeset .bio-photo {
+  display: block;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+@media screen and (max-width: 600px) {
+  .md-typeset .bio-block {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+}
+
 /* Primary CTA — amber filled with cream text, navy on hover. */
 .md-typeset .md-button--primary {
   background-color: var(--md-accent-fg-color);
@@ -186,6 +240,7 @@
 .md-typeset details.note > summary {
   background: transparent;
   border: none;
+  margin: 0;
   padding: 1rem 2.5rem 1rem 0;
   font-weight: 600;
   color: var(--md-default-fg-color);

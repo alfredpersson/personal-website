@@ -55,7 +55,7 @@ Hi, I'm Alfred. I'm a freelance AI product engineer and I work with B2B SaaS tea
 
 If you've shipped an AI feature and adoption isn't where you hoped, that's where I come in. Whether the gap is technical or product is rarely obvious. Usually it's both, and the fix lives somewhere in between.
 
-I studied interaction technology and design at Umeå University, a programme that combines software engineering with UX and usability. After that I moved into backend engineering, where I spent five years building blockchain applications. That meant code I couldn't patch after deployment and real users moving real money, the kind of software that has to stay reliable under unpredictable conditions. That mix of understanding what users need and knowing how to build reliable systems is what I bring to AI work now.
+I studied interaction technology and design at Umeå University, a programme that combines software engineering with UX and usability. After that I moved into backend engineering, where I spent five years building blockchain applications. That meant code I couldn't patch after deployment and real users moving real money, the kind of software that has to stay reliable under unpredictable conditions. The AI focus came in the last stretch: building demos and RAG pipelines at ChromaWay on the platform's built-in LLM inference and vector database support, then Datalumina's six-week production AI program. That mix of understanding what users need and knowing how to build reliable systems is what I bring to AI work now.
 
 The difference between an AI feature that gets adopted and one that gets ignored usually comes down to how it handles uncertainty and whether it fits how users actually think. Those are the decisions I focus on.
 
@@ -85,7 +85,7 @@ The difference between an AI feature that gets adopted and one that gets ignored
     B2B SaaS products with user-facing AI features. Things like support bots, AI-assisted workflows, intelligent search, document processing. The common thread is that there's an AI component that end users interact with directly, and it needs to work well enough that people actually trust and use it.
 
 ??? note "What's your background?"
-    Short version: interaction design and software engineering at Umeå University, then five years building blockchain applications. The mix I work from is production engineering plus user-side thinking about whether anyone actually uses the result.
+    Short version: interaction design and software engineering at Umeå University, then five years building blockchain applications. The AI focus came in the last stretch, with RAG pipelines at ChromaWay and Datalumina's six-week production AI program. The mix I work from is production engineering plus user-side thinking about whether anyone actually uses the result.
 
 ??? note "Do you work as a contractor or on fixed-scope projects?"
     Both. Part-time embedded work makes sense if you have ongoing AI work and want me iterating alongside your engineers. A fixed-scope engagement makes sense if you want a specific feature built, shipped, and handed off. We can figure out what fits during the intro call.
@@ -95,6 +95,9 @@ The difference between an AI feature that gets adopted and one that gets ignored
 
 ??? note "What's your tech stack?"
     Python, FastAPI, OpenAI, Claude, LangChain/pydantic-ai, ChromaDB, Pinecone, pgvector, sentence-transformers, PostgreSQL, and Docker.
+
+??? note "Where are you based and how does GDPR work?"
+    Fully remote from Mauritius, on EU working hours. GDPR data handling is covered by a standard Data Processing Agreement and EU Standard Contractual Clauses, with a Transfer Impact Assessment available on request.
 
 
 ## :material-coffee: Let's grab a virtual coffee

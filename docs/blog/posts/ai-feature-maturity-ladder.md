@@ -25,17 +25,17 @@ The numbers back this up. MIT researchers studying [300 enterprise AI deployment
 
 This is the framework I use when I'm trying to figure out where an AI feature actually stands. Five levels, from "we shipped something" to "this is a core part of the product."
 
-| Level | Name | What it looks like |
+| Level | Name | What you'd observe at this level |
 | --- | --- | --- |
-| 1 | Experimental Add-On | A one-off experiment buried in the product, with inconsistent outputs, no clear owner, and nothing being measured beyond clicks. |
-| 2 | Helpful Sidekick | Useful in some cases but optional and disconnected from the main workflow, with uneven UX and no real way to know if it's improving outcomes for users. |
-| 3 | Integrated Co-Pilot | Shows up at the right moment and produces outputs users can act on directly, but quality is still monitored reactively and business impact is largely assumed. |
-| 4 | Optimized Workflow Partner | Business impact is actively tracked and the feature holds up under real-world conditions, but it's still one of many rather than something that shapes the product direction. |
-| 5 | Strategic Growth Engine | A feature users depend on without thinking about it, one that consistently drives measurable outcomes and serves as the foundation for future AI work. |
+| 1 | Experimental Add-On | The few users who try it get unreliable outputs and rarely come back. The team has no clear signal on whether it is helping anyone. |
+| 2 | Helpful Sidekick | Some users find it useful when inputs are simple, but most stick with the non-AI path on anything tricky. The team has anecdotes but no measurement of broader adoption. |
+| 3 | Integrated Co-Pilot | Use extends well beyond early adopters, though the manual path remains the default for many. The team has stopped debating whether it works. |
+| 4 | Optimized Workflow Partner | Most of the user base uses it daily because outputs hold up on messy inputs. The team can name a business metric it moves. |
+| 5 | Strategic Growth Engine | Customers cite it as a reason they chose you. The team shows quarter-over-quarter improvement that competitors haven't matched. |
 
 Most AI features in production today sit at Level 1 or 2. [Only 12% of organizations](https://www.infosys.com/services/data-ai-topaz/insights/enterprises-ai-maturity-leaders.html) have achieved AI integration at scale, and [just 38% have moved beyond pilots](https://www.tekta.ai/reports/mckinsey-state-of-ai-2025). The teams behind these features think they're at Level 3 because the feature works well in demos, but demo performance and real-world adoption are different problems.
 
-The gap between 2 and 3 is where most teams get stuck. Crossing it requires work on product fit, trust, and measurement — [real adoption only happens when AI is built into the natural workflow](https://www.fiwe.com/en/library/knowledge-posts/ai-adoption-ai-in-workflows-not-the-toolbox), not bolted on as a side feature. Most teams skip that part entirely.
+The gap between 2 and 3 is where most teams get stuck. Crossing it requires work on product fit, trust, and measurement, because [real adoption only happens when AI is built into the natural workflow](https://www.fiwe.com/en/library/knowledge-posts/ai-adoption-ai-in-workflows-not-the-toolbox), not bolted on as a side feature. Most teams skip that part entirely.
 
 ## Why accuracy is a red herring
 
@@ -77,9 +77,9 @@ Then fix that first. What that looks like depends on the bottleneck:
 
 - **If Measurement is your weakest:** You're flying blind and every other decision is a guess. Before touching anything else, instrument the feature so you can see what users actually do with it. Track whether they act on the output, edit it, or dismiss it. Not just whether they clicked. You need to be able to answer "is this feature helping users?" with data, not intuition.
 
-- **If UX & Trust is your weakest:** Stop tuning the prompt and start watching users. Where do they hesitate? Where do they ignore the output entirely? Often the fix isn't better answers. It's showing users *why* the AI gave that answer, making it easy to correct or dismiss, and being honest when confidence is low. Users don't need the AI to be right every time. They need to be able to tell when it might be wrong.
+- **If UX & Trust is your weakest:** Stop tuning the prompt and start watching users. Where do they hesitate? Where do they ignore the output entirely? Often the fix is showing users *why* the AI gave that answer, making it easy to correct or dismiss, and being honest when confidence is low. Users care less about the AI being right every time and more about being able to tell when it might be wrong.
 
-- **If Product-Journey Fit is your weakest:** The feature works, but nobody encounters it at the moment they'd actually want it. Map the user's workflow step by step and find the point where the AI output would save them the most effort. Then put it there — not behind a menu, not in a separate tab.
+- **If Product-Journey Fit is your weakest:** The feature works, but nobody encounters it at the moment they'd actually want it. Map the user's workflow step by step and find the point where the AI output would save them the most effort. Then put it there, not behind a menu, not in a separate tab.
 
 - **If Ops & Ownership is your weakest:** Nobody is responsible for this feature after launch. Bugs get filed and sit. Model updates happen without anyone checking whether outputs changed. Assign a clear owner, set up alerts for quality regressions, and establish a regular cadence for reviewing how the feature is performing. An AI feature without an owner decays fast.
 
