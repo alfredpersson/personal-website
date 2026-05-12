@@ -19,7 +19,7 @@ Each level has both a user-visible signal and a team or ops signal. Both sides m
 | Level | Name | User signals | Team & ops signals |
 | --- | --- | --- | --- |
 | 1 | Experimental Add-On | Few users try it. The ones who do get unreliable outputs and rarely come back. | No measurement, no clear owner, prompts edited ad hoc. |
-| 2 | Helpful Sidekick | Some users find it useful when inputs are simple, but most stick with the non-AI path on anything tricky. | Anecdotes only. Basic logging, no eval set, no error analysis. |
+| 2 | Helpful Sidekick | Some users find it useful when inputs are simple, but most stick with the non-AI path on anything tricky. | Anecdotal quality signal. Basic logging, no eval set, no error analysis. |
 | 3 | Integrated Co-Pilot | Use extends well beyond early adopters, though the manual path remains the default for many. | Eval set in place, errors analyzed, named owner, regression tracking. |
 | 4 | Optimized Workflow Partner | Most of the user base reaches for it by default because outputs hold up on messy inputs. | Business metric tracked, live monitoring, guardrails versioned, incident response defined. |
 | 5 | Strategic Growth Engine | Customers cite the feature as a reason they chose the product, and competitors haven't matched the experience. | Each dimension is quantitatively managed, with sustained improvement cadence quarter over quarter. |
@@ -81,8 +81,4 @@ Each dimension is scored independently, and the lowest score sets the feature's 
 
 </div>
 
----
-
-## License
-
-The AI Feature Maturity Ladder framework described on this page is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/). You may share and adapt the framework for non-commercial use with attribution to Alfred Persson and SveaSync Solutions Ltd, and any derivatives must be shared under the same license. For commercial use, contact alfred@sveasync.com.
+<small>Framework licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Commercial use: alfred@sveasync.com.</small>
