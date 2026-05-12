@@ -1,0 +1,803 @@
+/* =============================================================
+   Brand color system — cream / navy / amber
+   See resources/brand/color_system.md for canonical palette.
+   ============================================================= */
+
+/* Light theme (default) — cream surface, navy text, amber accent */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #1B2A4E;
+  --md-primary-bg-color: #F7F2E7;
+  --md-default-bg-color: #F7F2E7;
+  --md-default-fg-color: #1B2A4E;
+  --md-default-fg-color--light: #4A5568;
+  --md-default-fg-color--lighter: #4A5568;
+  --md-accent-fg-color: #C77B3D;
+  --md-typeset-a-color: var(--md-accent-fg-color);
+  --md-code-bg-color: #FBF8F1;
+}
+
+/* Dark theme (slate) — navy surface, cream text, amber accent */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #1B2A4E;
+  --md-primary-bg-color: #F7F2E7;
+  --md-default-bg-color: #1B2A4E;
+  --md-default-fg-color: #F7F2E7;
+  --md-accent-fg-color: #C77B3D;
+  --md-typeset-a-color: var(--md-accent-fg-color);
+  --md-code-bg-color: #243558;
+}
+
+/* Footer + Mermaid vars apply identically across both schemes */
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  --md-footer-bg-color: #1B2A4E;
+  --md-footer-bg-color--dark: #1B2A4E;
+  --md-footer-fg-color: #F7F2E7;
+  --md-footer-fg-color--light: rgba(247, 242, 231, 0.75);
+  --md-footer-fg-color--lighter: rgba(247, 242, 231, 0.45);
+
+  --md-mermaid-edge-color: #1B2A4E;
+  --md-mermaid-node-bg-color: #FBF8F1;
+  --md-mermaid-node-fg-color: #1B2A4E;
+  --md-mermaid-label-bg-color: #FBF8F1;
+  --md-mermaid-label-fg-color: #1B2A4E;
+}
+
+/* =============================================================
+   Headings — solid navy/cream (override Material's faded H1) +
+   Newsreader serif for display surfaces (wordmark, h1, h2).
+   Body stays in Inter; serif does brand work, sans does reading.
+   ============================================================= */
+
+.md-header__title,
+.md-typeset h1,
+.md-typeset h2,
+.audit-hero h1 {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+  font-optical-sizing: auto;
+}
+
+.md-header__title {
+  font-weight: 800;
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
+  font-size: 1.05rem;
+}
+
+/* Wordmark in header is rendered as an <a> via overrides/partials/header.html
+   so the entire site name is a clickable home link. Strip the underline and
+   inherit color from the surrounding header chrome. */
+.md-header__title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.md-header__title-link:hover,
+.md-header__title-link:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+.md-typeset h1 {
+  color: var(--md-default-fg-color);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.md-typeset h2 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.audit-hero h1 {
+  font-weight: 800;
+}
+
+/* =============================================================
+   Buttons
+   ============================================================= */
+
+/* Pill-shaped CTAs — softer than Material's default 0.1rem corners.
+   .md-typeset prefix beats Material's default selector specificity. */
+.md-typeset .md-button {
+  border-radius: 9999px;
+  padding-left: 1.4em;
+  padding-right: 1.4em;
+}
+
+/* Breathing room around CTA paragraphs so buttons don't crowd surrounding text. */
+.md-typeset p:has(.md-button) {
+  margin-top: 1.75em;
+  margin-bottom: 1.75em;
+}
+
+/* Horizontal gap between adjacent CTA buttons. */
+.md-typeset .md-button + .md-button {
+  margin-left: 0.5rem;
+}
+
+/* Bio block — photo and prose as side-by-side columns. */
+.md-typeset .bio-block {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 1rem 0;
+}
+
+.md-typeset .bio-block > p {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.md-typeset .bio-text {
+  flex: 1;
+}
+
+.md-typeset .bio-text p:first-child {
+  margin-top: 0;
+}
+
+.md-typeset .bio-text p:last-child {
+  margin-bottom: 0;
+}
+
+.md-typeset .bio-photo {
+  display: block;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+@media screen and (max-width: 600px) {
+  .md-typeset .bio-block {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+}
+
+/* Primary CTA — amber filled with cream text, navy on hover. */
+.md-typeset .md-button--primary {
+  background-color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+  color: #F7F2E7 !important;
+}
+
+.md-typeset .md-button--primary:hover,
+.md-typeset .md-button--primary:focus {
+  background-color: #1B2A4E;
+  border-color: #1B2A4E;
+  color: #F7F2E7 !important;
+}
+
+/* Dark mode — fill all buttons with accent for visibility */
+[data-md-color-scheme="slate"] .md-button {
+  background-color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+  color: #F7F2E7;
+}
+
+[data-md-color-scheme="slate"] .md-button:hover {
+  background-color: #F7F2E7;
+  border-color: #F7F2E7;
+  color: #1B2A4E;
+}
+
+/* =============================================================
+   Note admonition
+   ============================================================= */
+
+:root {
+  --md-admonition-icon--note: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg>');
+}
+
+/* Inline note admonitions (`!!! note`) — keep amber-bordered box. */
+.md-typeset .note {
+  border-color: #C77B3D;
+}
+
+.md-typeset .note > .admonition-title {
+  background-color: rgba(199, 123, 61, 0.1);
+  border-color: #C77B3D;
+}
+
+.md-typeset .note > .admonition-title::before {
+  background-color: #C77B3D;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .note {
+  border-color: #C77B3D;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .note > .admonition-title {
+  background-color: rgba(199, 123, 61, 0.15);
+  border-color: #C77B3D;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .note > .admonition-title::before {
+  background-color: #C77B3D;
+}
+
+/* Collapsible notes (`??? note`) — used for the FAQ. Strip the box, use
+   hairline dividers, drop the pencil icon, keep amber chevron. */
+.md-typeset details.note {
+  border: none;
+  border-radius: 0;
+  border-top: 1px solid rgba(27, 42, 78, 0.12);
+  background: transparent;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+.md-typeset details.note:last-of-type {
+  border-bottom: 1px solid rgba(27, 42, 78, 0.12);
+}
+
+.md-typeset details.note > summary {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 1rem 2.5rem 1rem 0;
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.md-typeset details.note > summary::before {
+  display: none;
+}
+
+.md-typeset details.note > summary::after {
+  color: #C77B3D;
+  right: 0.25rem;
+}
+
+.md-typeset details.note[open] > summary {
+  border-bottom: none;
+}
+
+.md-typeset details.note > :not(summary) {
+  padding: 0 0 1.25rem;
+}
+
+[data-md-color-scheme="slate"] .md-typeset details.note {
+  border-top-color: rgba(247, 242, 231, 0.12);
+}
+
+[data-md-color-scheme="slate"] .md-typeset details.note:last-of-type {
+  border-bottom-color: rgba(247, 242, 231, 0.12);
+}
+
+/* =============================================================
+   Abstract admonition
+   ============================================================= */
+
+.md-typeset .admonition.abstract,
+.md-typeset details.abstract {
+  border-color: #C77B3D !important;
+}
+
+.md-typeset .admonition.abstract:focus-within,
+.md-typeset details.abstract:focus-within {
+  box-shadow: 0 0 0 .2rem rgba(199, 123, 61, 0.1) !important;
+}
+
+.md-typeset .abstract > .admonition-title,
+.md-typeset .abstract > summary {
+  background-color: rgba(199, 123, 61, 0.1) !important;
+}
+
+.md-typeset .abstract > .admonition-title::before,
+.md-typeset .abstract > summary::before {
+  background-color: #C77B3D !important;
+}
+
+.md-typeset .abstract > .admonition-title::after,
+.md-typeset .abstract > summary::after {
+  color: #C77B3D !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.abstract,
+[data-md-color-scheme="slate"] .md-typeset details.abstract {
+  border-color: #C77B3D !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.abstract:focus-within,
+[data-md-color-scheme="slate"] .md-typeset details.abstract:focus-within {
+  box-shadow: 0 0 0 .2rem rgba(199, 123, 61, 0.15) !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .abstract > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .abstract > summary {
+  background-color: rgba(199, 123, 61, 0.15) !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .abstract > .admonition-title::before,
+[data-md-color-scheme="slate"] .md-typeset .abstract > summary::before {
+  background-color: #C77B3D !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .abstract > .admonition-title::after,
+[data-md-color-scheme="slate"] .md-typeset .abstract > summary::after {
+  color: #C77B3D !important;
+}
+
+/* =============================================================
+   Audit Page
+   ============================================================= */
+
+.md-main__inner:has(.audit-page) {
+  margin-top: 0.5rem;
+}
+
+.md-content:has(.audit-page) .md-content__inner {
+  padding-top: 0;
+}
+
+.audit-page {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.audit-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--md-accent-fg-color);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.audit-hero {
+  padding: 1rem 0 0.75rem;
+  max-width: 720px;
+}
+
+.audit-hero h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--md-default-fg-color) !important;
+}
+
+.audit-page h2 {
+  color: var(--md-default-fg-color) !important;
+}
+
+.audit-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #4A5568;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+[data-md-color-scheme="slate"] .audit-subtitle {
+  color: rgba(247, 242, 231, 0.65);
+}
+
+.audit-hide-mobile {
+  display: none;
+}
+
+@media screen and (min-width: 769px) {
+  .audit-hide-mobile {
+    display: inline;
+  }
+}
+
+.audit-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.audit-buttons p {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.audit-page hr {
+  margin: 0;
+  border: none;
+  border-top: 1px solid #D9D2C3;
+}
+
+[data-md-color-scheme="slate"] .audit-page hr {
+  border-top-color: rgba(217, 210, 195, 0.2);
+}
+
+.audit-prose {
+  max-width: 720px;
+}
+
+.audit-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.audit-two-col--prose {
+  max-width: 720px;
+}
+
+.audit-two-col > .audit-col > h2:first-child {
+  margin-top: 0;
+}
+
+.audit-section {
+  padding: 1rem 0;
+}
+
+.audit-section > h2:first-of-type {
+  margin-top: 0;
+}
+
+.audit-dimensions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.audit-dimensions .audit-dim:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.audit-dim {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: #FBF8F1;
+  border: 1px solid #D9D2C3;
+  border-radius: 0.5rem;
+}
+
+[data-md-color-scheme="slate"] .audit-dim {
+  background: rgba(247, 242, 231, 0.04);
+  border-color: rgba(217, 210, 195, 0.2);
+}
+
+.audit-dim-icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(199, 123, 61, 0.12);
+  border-radius: 0.5rem;
+  color: var(--md-accent-fg-color);
+}
+
+[data-md-color-scheme="slate"] .audit-dim-icon {
+  background: rgba(199, 123, 61, 0.18);
+}
+
+.audit-dim-icon p {
+  margin: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audit-dim-icon .twemoji svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.audit-dim-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.audit-dim-text p:first-child {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+}
+
+.audit-dim-text p:last-child {
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #4A5568;
+}
+
+[data-md-color-scheme="slate"] .audit-dim-text p:last-child {
+  color: rgba(247, 242, 231, 0.65);
+}
+
+.audit-timeline {
+  position: relative;
+  padding-left: 36px;
+  margin-top: 1.5rem;
+}
+
+.audit-timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 6px;
+  bottom: 12px;
+  width: 1px;
+  background-color: #D9D2C3;
+}
+
+[data-md-color-scheme="slate"] .audit-timeline::before {
+  background-color: rgba(217, 210, 195, 0.2);
+}
+
+.audit-phase {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.audit-phase:last-child {
+  padding-bottom: 0;
+}
+
+.audit-phase::before {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--md-accent-fg-color);
+  background-color: var(--md-default-bg-color, #F7F2E7);
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+[data-md-color-scheme="slate"] .audit-phase::before {
+  background-color: var(--md-default-bg-color);
+}
+
+.audit-phase::after {
+  content: '';
+  position: absolute;
+  left: -29px;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--md-accent-fg-color);
+  z-index: 2;
+}
+
+.audit-phase-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--md-accent-fg-color);
+  margin-bottom: 0.125rem;
+}
+
+.audit-phase h3 {
+  margin-top: 0 !important;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.audit-phase ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.audit-phase li {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: #4A5568;
+}
+
+[data-md-color-scheme="slate"] .audit-phase li {
+  color: rgba(247, 242, 231, 0.65);
+}
+
+.audit-checks ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.audit-checks li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  line-height: 1.6;
+}
+
+.audit-checks li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.2rem;
+  background-color: var(--md-accent-fg-color);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.audit-pricing-card {
+  border: 2px solid rgba(199, 123, 61, 0.3);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  max-width: 640px;
+  margin: 1rem auto;
+}
+
+[data-md-color-scheme="slate"] .audit-pricing-card {
+  border-color: rgba(199, 123, 61, 0.4);
+}
+
+.audit-pricing-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--md-accent-fg-color);
+  margin-bottom: 0.25rem !important;
+}
+
+.audit-price {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.audit-pricing-features ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+.audit-pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  font-size: 0.875rem;
+}
+
+.audit-pricing-features li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--md-accent-fg-color);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.audit-pricing-card > p:last-child {
+  font-size: 0.875rem;
+  color: #4A5568;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+[data-md-color-scheme="slate"] .audit-pricing-card > p:last-child {
+  color: rgba(247, 242, 231, 0.65);
+}
+
+.audit-cta {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.audit-cta h2 {
+  margin-top: 0;
+}
+
+.audit-cta > p {
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.audit-cta .audit-buttons {
+  justify-content: center;
+}
+
+.audit-cta .audit-buttons p {
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .audit-hero {
+    padding: 1.5rem 0 1rem;
+  }
+
+  .audit-hero h1 {
+    font-size: 2rem;
+  }
+
+  .audit-dim {
+    padding: 1rem;
+  }
+
+  .audit-price {
+    font-size: 2.5rem;
+  }
+
+  .audit-pricing-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .audit-dimensions {
+    grid-template-columns: 1fr;
+  }
+
+  .audit-two-col {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+/* =============================================================
+   Mermaid — diagrams sit on a cream backdrop in both schemes,
+   matching the brand spec ("diagrams: cream backgrounds always")
+   and keeping axis labels / floating text readable in dark mode.
+   ============================================================= */
+
+.md-typeset .mermaid {
+  text-align: center;
+  background-color: #F7F2E7;
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.md-typeset .mermaid svg {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+/* Slate mode: Material flips Mermaid's text colors to cream, which kills
+   contrast on our cream-surfaced diagrams. Force navy on the labels
+   that sit inside / on the cream backdrop. */
+[data-md-color-scheme="slate"] .mermaid .nodeLabel,
+[data-md-color-scheme="slate"] .mermaid foreignObject span,
+[data-md-color-scheme="slate"] .mermaid .edgeLabel,
+[data-md-color-scheme="slate"] .mermaid text {
+  color: #1B2A4E !important;
+  fill: #1B2A4E !important;
+}
+
+[data-md-color-scheme="slate"] .mermaid .edgeLabel {
+  background-color: #FBF8F1 !important;
+}
+
+/* =============================================================
+   Header buttons — keep focus ring keyboard-only so touch taps
+   don't leave a stuck amber outline on the theme toggle.
+   ============================================================= */
+
+.md-header__button:focus:not(:focus-visible),
+.md-header__option [type="checkbox"]:focus:not(:focus-visible) + .md-header__button {
+  outline: none;
+  box-shadow: none;
+}
