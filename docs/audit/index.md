@@ -1,24 +1,24 @@
 ---
 title: AI Feature Audit
-description: A two-week diagnostic audit of your AI feature for €5,000. Five dimensions assessed, a prioritized roadmap, and a clear answer to what's holding back adoption.
-keywords: AI feature audit, AI adoption, AI UX, AI product engineering, AI maturity assessment, B2B SaaS AI
+description: A two-week diagnostic of your AI product across five behaviour dimensions. Maturity score per dimension, prioritized roadmap of named fixes, walkthrough session. €3,000-5,000.
+keywords: AI feature audit, AI product audit, AI evaluation, AI UX, AI behaviour design, AI maturity assessment
 author: Alfred Persson
 ---
 
 # AI Feature Diagnostic Audit
 
-Your AI feature shipped, but users aren't adopting it. The problem is rarely the model instructions.
+Your AI product shipped. The pipeline works, but in production it behaves in ways no one designed for: it confuses users, fails silently, or breaks trust. The problem is rarely the model instructions.
 
-A common response to low adoption is to iterate on the prompts or switch models. But the real blockers are usually elsewhere: the feature doesn't show up at the right moment, users can't tell when to trust it, or there's no data on whether it actually helps. Meanwhile, users are forming the habit of ignoring it.
+A common response is to iterate on the prompts or switch models. But the real blockers are usually elsewhere: the AI shows up at the wrong moment, users can't tell when to trust the output, fallback paths are missing, or there's no measurement of whether it's actually working. Meanwhile, users form the habit of working around it.
 
 [Book Free Intro Call :material-calendar:](https://calendly.com/alfred-persson/intro){ .md-button .md-button--primary }
 [Email me directly :material-email-outline:](mailto:alfred@sveasync.com){ .md-button }
 
 ## Who this is for
 
-Small to mid-sized B2B SaaS teams who have shipped an AI feature and aren't seeing the adoption or outcomes they expected. You need a feature in production and users who should be getting value from it but aren't. No dedicated AI team required.
+Product teams who have shipped an AI product and are watching it behave in production in ways no one designed for. The team has either ML/backend or product/UX, but no one owns AI behaviour end-to-end. The AI is user-facing in some way: external customers, internal users, or both. Common fits include B2B SaaS adding AI to existing products, AI-native startups, ops tooling, and internal knowledge platforms.
 
-Less of a fit if you haven't shipped yet, have less than a few weeks of usage data to analyze, or your AI is purely backend automation with no user-facing surface.
+Less of a fit if you haven't shipped yet, have less than a few weeks of production usage to look at, or your AI is purely backend automation with no user-facing surface.
 
 ## What gets assessed
 
@@ -113,7 +113,7 @@ Default scoping is non-PII. If your feature touches user data, we agree on what'
 
 ## Pricing
 
-**€5,000** for the two-week diagnostic audit.
+**€3,000-5,000** for the two-week diagnostic, scoped at the intro call based on product complexity and access depth.
 
 I run one audit at a time. Typical kickoff is one to two weeks after the intro call.
 
@@ -133,9 +133,9 @@ The audit gives you a prioritized roadmap. Three ways to take it forward:
 
 <div class="bio-text" markdown>
 
-I'm Alfred Persson, a freelance AI product engineer. I studied interaction technology and design at Umeå University, then spent five years building blockchain applications and infrastructure where reliability under unpredictable conditions wasn't optional. The AI focus came in the last stretch: building demos and RAG pipelines at ChromaWay on the platform's built-in LLM inference and vector database support, then Datalumina's six-week production AI program.
+I'm Alfred Persson, a freelance AI engineer. I studied interaction technology and design at Umeå University (software engineering combined with UX and usability), then spent five years building production distributed systems where reliability under unpredictable conditions wasn't optional. The AI focus came in the last stretch: building demos and RAG pipelines at ChromaWay on the platform's built-in LLM inference and vector database support, then Datalumina's six-week production AI program.
 
-AI engineering hits the same core problem in a new domain: building systems that fail gracefully when you can't predict the inputs. I now apply that combination of production engineering and user-side thinking about trust, uncertainty, and workflow fit to AI features in B2B SaaS. The maturity ladder this audit uses is my synthesis of CMMI, Nielsen's heuristics, Microsoft's HAX guidelines, Google's PAIR work, and Husain/Shankar on eval-driven development. [More about me](../).
+AI engineering hits the same core problem in a new domain: building systems that fail gracefully when you can't predict the inputs. I apply that combination of production engineering and user-side thinking about trust, uncertainty, and workflow fit to AI products end-to-end. The maturity ladder this audit uses is my synthesis of CMMI, Nielsen's heuristics, Microsoft's HAX guidelines, Google's PAIR work, and Husain/Shankar on eval-driven development. [More about me](../).
 
 </div>
 
@@ -145,9 +145,9 @@ AI engineering hits the same core problem in a new domain: building systems that
 
 Fully remote from Mauritius, on EU working hours. GDPR data handling is covered by a standard Data Processing Agreement and EU Standard Contractual Clauses, with a Transfer Impact Assessment available on request. Findings stay confidential by default, and case-study publication requires your written approval.
 
-## Let's talk about your feature
+## Let's talk about your AI product
 
-Book a free 30-minute intro call to discuss your feature, where adoption is stuck, and whether the audit fits. Helpful to bring adoption signals if you have them: usage metrics, user complaints, or support patterns. Not required.
+Book a free 30-minute intro call to discuss your AI product, where behaviour is breaking down, and whether the audit fits. Helpful to bring behavioural signals if you have them: usage metrics, user complaints, support patterns, or known failure modes. Not required.
 
 [Book Free Intro Call :material-arrow-right:](https://calendly.com/alfred-persson/intro){ .md-button .md-button--primary }
 [Email me directly :material-email-outline:](mailto:alfred@sveasync.com){ .md-button }

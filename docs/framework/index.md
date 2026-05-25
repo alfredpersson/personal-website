@@ -1,14 +1,14 @@
 ---
 title: AI Feature Maturity Ladder
-description: A 5-level framework for assessing user-facing AI features in B2B SaaS, scored across product fit, UX & trust, output quality, measurement, and ops.
-keywords: AI feature maturity, AI maturity model, AI adoption framework, AI UX, RAG maturity, AI product engineering
+description: A 5-level framework for assessing user-facing AI products, scored across product fit, UX & trust, output quality, measurement, and ops.
+keywords: AI feature maturity, AI maturity model, AI behaviour framework, AI evaluation, AI UX, RAG maturity, AI product engineering
 author: Alfred Persson
 canonical_url: https://www.alfredpersson.com/framework/
 ---
 
 # AI Feature Maturity Ladder
 
-A diagnostic framework for user-facing AI features in B2B SaaS, with five dimensions (Product-Journey Fit, UX & Trust, Output Quality, Measurement & Feedback, Ops & Ownership) each scored on a five-level scale. The point is to find the weakest dimension, because that's what will eventually constrain the feature even when current usage looks fine.
+A diagnostic framework for user-facing AI products, with five dimensions (Product-Journey Fit, UX & Trust, Output Quality, Measurement & Feedback, Ops & Ownership) each scored on a five-level scale. The point is to find the weakest dimension, because that's what will eventually constrain the product even when current usage looks fine.
 
 This page is the reference. The [blog post](../blog/posts/ai-feature-maturity-ladder.md) makes the argument for why the framework matters, and the [audit](../audit/index.md) is the service that applies it.
 
@@ -59,9 +59,9 @@ The synthesis is mine. The dimension cuts and the level rubric are choices, not 
 
 ## When this framework applies
 
-The ladder is built for **user-facing AI features inside B2B SaaS products**, not for AI-native products or pure ML systems. The defining trait is that the AI is optional inside a product that already works without it. Users can do the underlying job through the existing non-AI path, so the feature has to earn its use rather than simply exist. In practice, early-stage maturity is usually capped by Product-Journey Fit or UX & Trust, while later-stage maturity is more often capped by Measurement & Feedback or Ops & Ownership.
+The ladder is built for **user-facing AI products**, where the AI is part of how a real user gets their job done. The framework applies whether the AI is an optional layer in a product that already worked without it (B2B SaaS adding AI to existing products) or the AI is the workflow itself (AI-native products). The same five dimensions matter; the weighting shifts. In SaaS-add-on cases, early-stage maturity is usually capped by Product-Journey Fit or UX & Trust because the feature has to earn its use against an existing non-AI path. In AI-native cases, Output Quality and UX & Trust tend to bind first, because users can't fall back to a non-AI path when the AI behaves badly.
 
-For purely internal AI tools, agentic systems with no user interface, or AI-native products where the AI *is* the workflow, some dimensions still apply but the weighting shifts.
+Not built for purely backend AI with no user-facing surface, or pure ML systems where there's no behaviour to design.
 
 ## How the audit applies it
 

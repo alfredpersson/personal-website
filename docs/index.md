@@ -1,7 +1,7 @@
 ---
 title: Home
-description: Freelance AI Product Engineer helping B2B SaaS teams ship AI features that get adopted. UX + engineering background, 5 years of distributed systems experience.
-keywords: Alfred Persson, AI product engineer, freelance, SaaS AI features, RAG, LLM integration, UX engineering
+description: Freelance AI engineer building AI products with evaluation, fallback handling, and uncertainty-aware UX. Software engineering and usability background, 5 years of production systems experience.
+keywords: Alfred Persson, AI engineer, freelance, AI products, RAG, LLM orchestration, evaluation, uncertainty UX, behaviour design
 author: Alfred Persson
 canonical_url: https://www.alfredpersson.com/
 image: https://www.alfredpersson.com/assets/thumbnail-website.jpg
@@ -17,7 +17,7 @@ image: https://www.alfredpersson.com/assets/thumbnail-website.jpg
     "https://www.linkedin.com/in/alfredpersson/",
     "https://github.com/alfredpersson"
   ],
-  "jobTitle": "Freelance AI Product Engineer"
+  "jobTitle": "Freelance AI Engineer"
 }
 </script>
 
@@ -25,17 +25,17 @@ image: https://www.alfredpersson.com/assets/thumbnail-website.jpg
 
 <div class="text-intro-grid" markdown>
 
-# Helping SaaS teams ship AI features users actually adopt
+# I build AI products with evaluation, fallback handling, and uncertainty-aware UX
 
-### Adoption is where most B2B AI features break down { .hero-subtitle }
+### How an AI product behaves matters as much as how accurate it is { .hero-subtitle }
 
-- Your AI feature is live but adoption is flat
+- The pipeline works in demos, but production exposes behaviour no one designed for
 
-- Users try it once and don't come back
+- Users can't tell when to trust the output, or what to do when it's wrong
 
-- It's hard to tell whether the gap is technical or product
+- No one on the team owns AI behaviour end-to-end
 
-- Demos pass, but real workflows expose what's broken
+- Better accuracy alone won't fix any of it
 
 [Book Free Intro Call :material-arrow-right:](https://calendly.com/alfred-persson/intro){ .md-button .md-button--primary }
 
@@ -43,7 +43,7 @@ image: https://www.alfredpersson.com/assets/thumbnail-website.jpg
 
 <div class="profile-image-grid" markdown>
 
-![Alfred Persson, AI Product Engineer](assets/@alfredpersson.jpg){ .profile-image alt="Portrait of Alfred Persson, AI product engineer" }
+![Alfred Persson, AI Engineer](assets/@alfredpersson.jpg){ .profile-image alt="Portrait of Alfred Persson, freelance AI engineer" }
 
 </div>
 
@@ -51,47 +51,45 @@ image: https://www.alfredpersson.com/assets/thumbnail-website.jpg
 
 ## About me
 
-Hi, I'm Alfred. I'm a freelance AI product engineer and I work with B2B SaaS teams to build AI features that actually get used.
+Hi, I'm Alfred. I'm a freelance AI engineer and I work with product teams shipping AI products: assistants, copilots, RAG over internal data, agentic workflows.
 
-If you've shipped an AI feature and adoption isn't where you hoped, that's where I come in. Whether the gap is technical or product is rarely obvious. Usually it's both, and the fix lives somewhere in between.
+If your AI product behaves well in demos and unpredictably in production, that's where I come in. The pipeline might work, but the AI confuses users, fails silently, or breaks trust in ways no one designed for. Better accuracy doesn't fix that. Designing how the AI should behave does.
 
-I studied interaction technology and design at Umeå University, a programme that combines software engineering with UX and usability. After that I moved into backend engineering, where I spent five years building blockchain applications. That meant code I couldn't patch after deployment and real users moving real money, the kind of software that has to stay reliable under unpredictable conditions. The AI focus came in the last stretch: building demos and RAG pipelines at ChromaWay on the platform's built-in LLM inference and vector database support, then Datalumina's six-week production AI program. That mix of understanding what users need and knowing how to build reliable systems is what I bring to AI work now.
-
-The difference between an AI feature that gets adopted and one that gets ignored usually comes down to how it handles uncertainty and whether it fits how users actually think. Those are the decisions I focus on.
+I studied interaction technology and design at Umeå University, a programme that combines software engineering with UX and usability. After that I moved into backend engineering, where I spent five years building production distributed systems that had to stay reliable under unpredictable conditions. The AI focus came in the last stretch: building demos and RAG pipelines at ChromaWay on the platform's built-in LLM inference and vector database support, then Datalumina's six-week production AI program. AI products fail unpredictably by nature, and the engineering layer that decides how they should behave when they fail tends to fall through the cracks between ML, product, and design teams. That mix of usability and reliable systems engineering is what I bring to AI work now.
 
 ## Why work with me?
 
-:material-palette-swatch: **UX + Engineering Background** · I studied interaction design alongside software engineering. I build features that fit how users actually think, not just how the system works. That means fewer "it works but nobody uses it" situations.
+:material-palette-swatch: **Usability + Engineering Background** · I studied interaction technology at Umeå University, software engineering combined with UX and usability. I think about the pipeline and how the user reads its output, including what happens when the model is wrong. I diagnose and spec what the UI should do; your design team handles how it looks.
 
-:material-server-network: **5 Years in Production Systems** · I spent five years building blockchain applications. I know what it takes to ship software that has to stay reliable under real conditions, not just pass a demo.
+:material-server-network: **5 Years in Production Systems** · I spent five years building production distributed systems that had to stay reliable under unpredictable conditions. Production-grade shipping habits transfer directly to AI products, which fail in unpredictable ways by nature.
 
-:material-layers-triple: **Pipeline to Integration Spec** · I build the retrieval pipeline, LLM orchestration, and API layer. I also spec how each response should behave in the UI, especially confidence states and when the feature should hand off to a human.
+:material-layers-triple: **End-to-end ownership of behaviour** · I build the retrieval pipeline, LLM orchestration, and evaluation framework, and I spec how each response type should behave in the UI: confidence states, escalation flows, error handling. Most AI engineers stop at the pipeline.
 
-:material-target: **Designed Around Failure** · Accuracy metrics don't matter if users don't trust the output. I focus on how the feature handles failure and communicates uncertainty, so users get a useful next step instead of a confidently wrong answer.
+:material-target: **Behaviour over accuracy** · Five behaviour dimensions: Product-Journey Fit, UX & Trust, Output Quality, Measurement & Feedback, Ops & Ownership. Accuracy is one of five, not the whole picture.
 
 ## How I work
 
-:material-magnify: **AI Feature Audit** · A structured review of an existing AI feature, looking at both the system and how users experience it, with a prioritized fix list. You get a findings report with a maturity score, prioritized fixes, and an advancement roadmap, plus a walkthrough session with your team. Usually 2 weeks.
+:material-magnify: **AI Feature Audit** · A two-week diagnostic of an existing AI product across the five behaviour dimensions. You get a maturity score per dimension, a prioritized roadmap of named fixes, and a walkthrough session. Fixed price, €3,000-5,000.
 
-:material-wrench: **Feature Build** · Architecture, retrieval, generation, API, and a clear integration spec that defines exactly how the feature should behave in the UI. Typically 4–8 weeks.
+:material-wrench: **Build** · Greenfield AI product, end-to-end. Retrieval, LLM orchestration, evaluation framework, fallback paths, and UI behaviour spec. 1-3 months, project-based or part-time embedded.
 
-:material-sync: **Integration & Iteration** · I embed into your team part-time (usually 2–3 days a week) to build, ship, and refine AI features alongside your existing engineers. Good for teams that have ongoing AI work but not enough in-house experience to move fast.
+:material-sync: **Embedded** · Part-time AI engineer on your team, typically 2-3 days a week for 2-6 months. Owns AI behaviour, evaluation, and integration spec across multiple features.
 
-:material-chart-line: **Evaluation & Measurement** · Most teams iterating on prompts have no way to tell if a change actually improved anything. I run error analysis on real traces with your domain expert to build a failure taxonomy, then ship the deterministic asserts and LLM judges that catch each failure mode in CI. Available as a one-week starter that ships the taxonomy and the first deterministic asserts, or a longer engagement that delivers a validated judge suite, annotation interface, and CI loop your team owns after handoff.
+:material-chart-line: **Evaluation & Measurement** · Most teams iterating on prompts have no way to tell if a change actually improved anything. I run error analysis on real traces with your domain expert to build a failure taxonomy, then ship the deterministic asserts and LLM judges that catch each failure mode in CI. Available as a one-week starter that ships the taxonomy and first asserts, or a longer engagement that delivers a validated judge suite, annotation interface, and CI loop your team owns after handoff.
 
 ## Frequently asked questions
 
 ??? note "What kind of products do you work on?"
-    B2B SaaS products with user-facing AI features. Things like support bots, AI-assisted workflows, intelligent search, document processing. The common thread is that there's an AI component that end users interact with directly, and it needs to work well enough that people actually trust and use it.
+    AI products where the AI is user-facing. Common shapes: assistants and copilots, RAG over internal data, agentic workflows, intelligent search, document processing. Common fits include B2B SaaS adding AI to existing products, AI-native startups small enough to lack a dedicated AI engineering team, ops tooling, and internal knowledge platforms. The common thread is that the AI behaviour matters to a real user, and someone needs to own how it should behave end-to-end.
 
 ??? note "What's your background?"
-    Short version: interaction design and software engineering at Umeå University, then five years building blockchain applications. The AI focus came in the last stretch, with RAG pipelines at ChromaWay and Datalumina's six-week production AI program. The mix I work from is production engineering plus user-side thinking about whether anyone actually uses the result.
+    Short version: interaction technology and design at Umeå University (software engineering combined with UX and usability), then five years building production distributed systems. The AI focus came in the last stretch, with RAG pipelines at ChromaWay and Datalumina's six-week production AI program. The mix I work from is production engineering plus user-side thinking about how the AI should behave, including when it's wrong.
 
 ??? note "Do you work as a contractor or on fixed-scope projects?"
-    Both. Part-time embedded work makes sense if you have ongoing AI work and want me iterating alongside your engineers. A fixed-scope engagement makes sense if you want a specific feature built, shipped, and handed off. We can figure out what fits during the intro call.
+    Both. Embedded work makes sense if you have ongoing AI work and want me iterating alongside your engineers. A fixed-scope engagement makes sense if you want a specific AI product built, shipped, and handed off. We figure out what fits during the intro call.
 
 ??? note "What does a typical engagement look like?"
-    Depends on the scope. A feature audit takes 2 weeks. A new AI feature build is typically 4–8 weeks from architecture to deployment. Ongoing integration work is usually 2–3 days per week. We start with a free intro call to scope the work and make sure it's a good fit.
+    Depends on scope. An audit takes 2 weeks. A Build is 1-3 months from architecture to deployment. Embedded work is 2-3 days per week over 2-6 months. We start with a free intro call to scope the work and make sure it's a good fit.
 
 ??? note "What's your tech stack?"
     Python, FastAPI, OpenAI, Claude, LangChain/pydantic-ai, ChromaDB, Pinecone, pgvector, sentence-transformers, PostgreSQL, and Docker.
