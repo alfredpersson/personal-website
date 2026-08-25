@@ -26,7 +26,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
       - name: Check internal links
-        run: pnpm dlx linkinator ./dist --recurse --skip "^https?://"
+        run: pnpm dlx linkinator ./dist --recurse --skip "^https?://(?!localhost|127\.0\.0\.1|0\.0\.0\.0)"
       - name: Deploy to gh-pages
         if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
