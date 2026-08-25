@@ -8,7 +8,7 @@ description: "A 5-level framework for diagnosing why an AI feature is not being 
 
 A diagnostic framework for user-facing AI products, with five dimensions (Product-Journey Fit, UX & Trust, Output Quality, Measurement & Feedback, Ops & Ownership) each scored on a five-level scale. The point is to find the weakest dimension, because that's what will eventually constrain the product even when current usage looks fine.
 
-This page is the reference. The [blog post](/blog/2026/03/25/the-ai-feature-maturity-ladder/) makes the argument for why the framework matters, and the audit is the service that applies it.
+This page is the reference. The [blog post](/blog/2026/03/25/the-ai-feature-maturity-ladder/) makes the argument for why the framework matters.
 
 ## The five levels
 
