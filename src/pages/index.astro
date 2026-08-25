@@ -1,6 +1,60 @@
 ---
 import Base from '../layouts/Base.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import { getCollection } from 'astro:content';
+const studies = (await getCollection('caseStudies')).sort((a, b) => a.data.order - b.data.order);
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
 ---
 <Base title="Alfred Persson, Senior AI Engineer" description="I own the product loop: user discovery, quality made testable, ship, measure.">
-  <h1>Alfred Persson</h1>
+  <section id="hero">
+    <h1>Alfred Persson</h1>
+    <p><strong>Senior AI Engineer.</strong> I own the product loop: user discovery, quality made testable, ship, measure.</p>
+    <p>Stockholm from early 2027. Previously tech lead at ChromaWay, founder of SveaSync.</p>
+    <p>
+      <a href="/cv.pdf">CV (PDF)</a> &middot;
+      <a href="https://github.com/alfredpersson">GitHub</a> &middot;
+      <a href="https://www.linkedin.com/in/alfredpersson">LinkedIn</a> &middot;
+      <a href="mailto:alfredpersson.se@gmail.com">alfredpersson.se@gmail.com</a>
+    </p>
+  </section>
+
+  <section id="how-i-work">
+    <h2>How I work</h2>
+    <p>In AI products, what a feature should do only becomes real as concrete examples with pass or fail judgments. I write those first, before the feature exists, and they stay as the regression suite after it ships.</p>
+    <p>I ask whether AI is the right tool before reaching for it. Plenty of problems are better served by a form, a rule, or a database query, and an AI feature that should have been a button erodes user trust.</p>
+    <p>I design the failure case first. A stochastic system will be wrong some of the time, so the product question is what happens then: who notices, what the user sees, and how the error becomes a test.</p>
+    <p>Constraints and honest refusals beat feature sprawl. A system that says "I cannot do that reliably" keeps the trust that a confident wrong answer spends.</p>
+  </section>
+
+  <section id="case-studies">
+    <h2>Case studies</h2>
+    {studies.map((study) => <CaseStudyCard study={study} />)}
+  </section>
+
+  <section id="writing">
+    <h2>Writing</h2>
+    <ul>
+      {posts.map((post) => (
+        <li><a href={`/blog/${post.data.permalink ?? post.id}/`}>{post.data.title}</a></li>
+      ))}
+    </ul>
+  </section>
+
+  <section id="calibration">
+    <h2>Where I'm strong, where I'm not</h2>
+    <p>Strong: LLM pipeline productionization, evaluation design, multi-tenant SaaS architecture, product discovery grounded in measurement, interaction design for stochastic systems.</p>
+    <p>Not my ground: ML research or model training. AWS production exposure is in progress. Agent-loop depth is being hand-built rather than claimed. My frontend is rusty relative to my backend.</p>
+  </section>
+
+  <section id="background">
+    <h2>Background</h2>
+    <p>ChromaWay: backend tech lead for teams of up to 10 developers. Senseworks: backend engineer. Umeå University interaction design programme. The arc runs from design to backend to AI.</p>
+  </section>
+
+  <section id="now">
+    <h2>Now</h2>
+    <p>Winding down SveaSync deliberately ahead of the Stockholm move. Evals course cohort September to October. Open to Stockholm roles from early 2027. Reach me at <a href="mailto:alfredpersson.se@gmail.com">alfredpersson.se@gmail.com</a>.</p>
+  </section>
 </Base>
