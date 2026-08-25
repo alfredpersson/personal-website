@@ -100,3 +100,6 @@ site/
 resources/
 .playwright-mcp/
 .claude/
+node_modules/
+dist/
+.astro/
