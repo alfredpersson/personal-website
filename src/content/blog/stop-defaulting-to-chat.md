@@ -19,16 +19,7 @@ The deeper constraint is structural. Most B2B SaaS products have core workflows 
 
 Which interface fits an AI feature depends on two things: whether the user's intent is precise or exploratory, and whether the action is ideally initiated by the user or by the system. Crossing those axes gives four options: on-demand actions, inline suggestions, surfaced insights, and chat.
 
-```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'quadrant1Fill':'#D9D2C3','quadrant2Fill':'#D9D2C3','quadrant3Fill':'#D9D2C3','quadrant4Fill':'#E8C9A8','quadrant1TextFill':'#1B2A4E','quadrant2TextFill':'#1B2A4E','quadrant3TextFill':'#1B2A4E','quadrant4TextFill':'#1B2A4E','quadrantXAxisTextFill':'#1B2A4E','quadrantYAxisTextFill':'#1B2A4E','quadrantTitleFill':'#1B2A4E','quadrantInternalBorderStrokeFill':'#1B2A4E','quadrantExternalBorderStrokeFill':'#1B2A4E'}}}%%
-quadrantChart
-    x-axis Precise intent --> Exploratory intent
-    y-axis User-initiated --> System-initiated
-    quadrant-1 Surfaced insight
-    quadrant-2 Inline suggestion
-    quadrant-3 On-demand action
-    quadrant-4 Chat
-```
+![The four interface options for an AI feature, plotted by task structure and workflow integration](/assets/interface-fit-quadrant.svg)
 
 On the user-initiated row, on-demand actions handle precise tasks (like a "Summarize" button on an email), while chat handles exploratory ones. On the system-initiated row, inline suggestions sit inside precise work like a Copilot ghost-text completion, and surfaced insights flag things the user hadn't thought to look for, like a potential risk in a contract.
 
@@ -78,7 +69,7 @@ For teams with chat already in production, the move is incremental rather than a
 
 ## How to apply this to your feature
 
-Product-journey fit is one dimension of the [maturity framework I use for diagnosing AI features](ai-feature-maturity-ladder.md), and usually the first place to look when adoption stalls. The 2x2 above describes the four interface options, and the most useful reframe on top of it is to ask what the workflow looked like before AI. If users were typing and clicking through it, the AI should integrate into those actions. If they were searching or asking colleagues for help, a conversational interface is a natural extension. The task that existed before AI should shape the interface, not the technology powering it.
+Product-journey fit is one dimension of the [maturity framework I use for diagnosing AI features](/blog/2026/03/25/the-ai-feature-maturity-ladder/), and usually the first place to look when adoption stalls. The 2x2 above describes the four interface options, and the most useful reframe on top of it is to ask what the workflow looked like before AI. If users were typing and clicking through it, the AI should integrate into those actions. If they were searching or asking colleagues for help, a conversational interface is a natural extension. The task that existed before AI should shape the interface, not the technology powering it.
 
 I recently ran this diagnosis on a SQL tooling product's AI assistant and four of the failure modes above were live in the same feature. The inline AI surface was a generic "How can I help?" text box with no predefined actions such as Explain, Optimize, or Fix, so users had to type their intent every time even for repetitive tasks. The assistant didn't surface anything on its own either: no warnings for queries about to scan a full table, no hints for WHERE clauses without usable indexes. When it did respond to an optimize prompt, its most useful output (the index recommendations) sat at the bottom of a long response, below paragraphs of setup the user had to read through first. And the clarifying questions the model actually needed appeared at the very end, meaning the recommendations above were built on guesses the user never got to correct.
 
@@ -87,15 +78,3 @@ The fix on all four is structural: Replace the empty text box with predefined ac
 The CPO's buyers asked "do you have AI?" and meant "do you have a chat window?" A chat widget built to answer that question is usually the one nobody adopts. Teams that avoid that outcome start by asking where in the workflow the AI actually provides value. The interface choice naturally follows from that answer.
 
 If the chat widget has to stay for buyer optics or investor demos, leave it in place. Build the inline surface underneath, so the users who actually do the work have something better to reach for.
-
-<div class="grid cards" markdown>
-
--   :material-magnify:{ .lg .middle } Shipped an AI feature that isn't landing?
-
-    ---
-
-    I run an AI Feature Audit that evaluates your feature across five dimensions: Product-Journey Fit, UX and Trust, Output Quality, Measurement and Feedback, and Ops and Ownership. Interface fit is often the first bottleneck, but it is rarely the only one. You get a findings report with a maturity score, prioritized fixes, and an advancement roadmap, plus a walkthrough session with your team.
-
-    [Book Free Intro Call :material-arrow-right:](https://calendly.com/alfred-persson/intro){ .md-button .md-button--primary }
-
-</div>

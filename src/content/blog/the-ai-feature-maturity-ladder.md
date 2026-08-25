@@ -72,15 +72,3 @@ Then fix that first. What that looks like depends on the bottleneck:
 - **If Ops & Ownership is your weakest:** Nobody is responsible for this feature after launch. Bugs get filed and sit. Model updates happen without anyone checking whether outputs changed. Assign a clear owner, set up alerts for quality regressions, and establish a regular cadence for reviewing how the feature is performing. An AI feature without an owner decays fast.
 
 Think about that team rewriting their prompt for the fourth time. What would change if they stopped and instead moved the feature inline, added a confidence indicator, and started tracking whether users edited the AI's suggestions or replaced them entirely? They'd know what's actually broken. And they'd probably find it was never the prompt.
-
-<div class="grid cards" markdown>
-
--   :material-magnify:{ .lg .middle } Not sure where your AI feature stands?
-
-    ---
-
-    I run an AI Feature Audit that scores your feature across all five dimensions and tells you what to fix first. You get a findings report with a maturity score, prioritized fixes, and an advancement roadmap, plus a walkthrough session with your team.
-
-    [Book Free Intro Call :material-arrow-right:](https://calendly.com/alfred-persson/intro){ .md-button .md-button--primary }
-
-</div>
