@@ -1,0 +1,19 @@
+---
+import Base from './Base.astro';
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  updated?: Date;
+}
+const { title, description, date, updated } = Astro.props;
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<Base title={title} description={description}>
+  <article>
+    <h1>{title}</h1>
+    <p><time datetime={date.toISOString()}>{fmt(date)}</time>{updated && <span> &middot; updated {fmt(updated)}</span>}</p>
+    <slot />
+  </article>
+</Base>
