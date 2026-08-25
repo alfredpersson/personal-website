@@ -61,10 +61,10 @@ The ladder is built for **user-facing AI products**, where the AI is part of how
 
 Not built for purely backend AI with no user-facing surface, or pure ML systems where there's no behaviour to design.
 
-## How the audit applies it
+## How scoring works
 
 Each dimension is scored independently, and the lowest score sets the feature's overall level. When a product has multiple AI features, each is scored separately. Shared infrastructure (evaluation pipelines, guardrail frameworks, monitoring, data governance) often sets a floor: a team rarely sustains a Level 4 feature on Level 1 infrastructure.
 
 ---
 
-<small>Framework licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Commercial use: alfred@sveasync.com.</small>
+<small>Framework licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Commercial use: alfredpersson.se@gmail.com.</small>
