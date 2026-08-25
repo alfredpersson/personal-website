@@ -1,0 +1,32 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import '../styles/global.css';
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+const { title, description, ogImage } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} ogImage={ogImage} />
+  </head>
+  <body>
+    <header class="wrap">
+      <nav>
+        <a href="/">Alfred Persson</a>
+        <a href="/case-studies/">Case studies</a>
+        <a href="/framework/">Framework</a>
+        <a href="/blog/">Writing</a>
+      </nav>
+    </header>
+    <main class="wrap">
+      <slot />
+    </main>
+    <footer class="wrap">
+      <hr />
+      <p>&copy; 2026 Alfred Persson &middot; <a href="/privacy/">Privacy</a> &middot; <a href="https://github.com/alfredpersson">GitHub</a> &middot; <a href="https://www.linkedin.com/in/alfredpersson">LinkedIn</a></p>
+    </footer>
+  </body>
+</html>
