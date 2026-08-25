@@ -1,7 +1,7 @@
 ---
 title: "SveaSync: multi-tenant AI assistant platform"
 problem: "Small hospitality businesses answer the same guest questions all day. Staffing for it costs more than it returns, and a bot that answers wrongly in the business's name loses customers."
-role: "Co-founder and technical lead. Sole architect and engineer."
+role: "Co-founder and technical lead, sole architect and engineer"
 decisions:
   - decision: "to route risky conversations to a human with a traffic-light escalation protocol"
     because: "an assistant answering in the company's name cannot afford a confident wrong answer"
