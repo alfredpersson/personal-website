@@ -8,20 +8,35 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 );
 ---
 <Base title="Alfred Persson, Senior AI Engineer" description="I own the product loop: user discovery, quality made testable, ship, measure.">
-  <section id="hero">
-    <h1>Alfred Persson</h1>
-    <p><strong>Senior AI Engineer.</strong> I own the product loop: user discovery, quality made testable, ship, measure.</p>
-    <p>Stockholm from early 2027. Previously tech lead at ChromaWay, founder of SveaSync.</p>
-    <p>
-      <a href="/cv.pdf">CV (PDF)</a> &middot;
-      <a href="https://github.com/alfredpersson">GitHub</a> &middot;
-      <a href="https://www.linkedin.com/in/alfredpersson">LinkedIn</a> &middot;
+  <header class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>Alfred<br>Persson</h1>
+        <p class="role">Senior AI Engineer</p>
+        <p class="identity">I own the product loop: user discovery, quality made testable, ship, measure.</p>
+        <p class="situation">Stockholm from early 2027. Previously tech lead at ChromaWay, founder of SveaSync.</p>
+      </div>
+      <div class="hero-photo-wrap">
+        <span class="hero-photo-mark"></span>
+        <div class="hero-photo">
+          <img src="/assets/alfredpersson.jpg" alt="Alfred Persson" />
+        </div>
+      </div>
+    </div>
+    <p class="hero-links">
+      <a href="/cv.pdf">CV (PDF)</a>
+      <a href="https://github.com/alfredpersson">GitHub</a>
+      <a href="https://www.linkedin.com/in/alfredpersson">LinkedIn</a>
       <a href="mailto:alfredpersson.se@gmail.com">alfredpersson.se@gmail.com</a>
     </p>
-  </section>
+  </header>
 
   <section id="how-i-work">
-    <h2>How I work</h2>
+    <div class="section-label">
+      <span class="section-label__num">01</span>
+      <h2>How I work</h2>
+      <div class="section-label__rule"></div>
+    </div>
     <p>In AI products, what a feature should do only becomes real as concrete examples with pass or fail judgments. I write those first, before the feature exists, and they stay as the regression suite after it ships.</p>
     <p>I ask whether AI is the right tool before reaching for it. Plenty of problems are better served by a form, a rule, or a database query, and an AI feature that should have been a button erodes user trust.</p>
     <p>I design the failure case first. A stochastic system will be wrong some of the time, so the product question is what happens then: who notices, what the user sees, and how the error becomes a test.</p>
@@ -29,12 +44,20 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   </section>
 
   <section id="case-studies">
-    <h2>Case studies</h2>
+    <div class="section-label">
+      <span class="section-label__num">02</span>
+      <h2>Case studies</h2>
+      <div class="section-label__rule"></div>
+    </div>
     {studies.map((study) => <CaseStudyCard study={study} />)}
   </section>
 
   <section id="writing">
-    <h2>Writing</h2>
+    <div class="section-label">
+      <span class="section-label__num">03</span>
+      <h2>Writing</h2>
+      <div class="section-label__rule"></div>
+    </div>
     <ul>
       {posts.map((post) => (
         <li><a href={`/blog/${post.data.permalink ?? post.id}/`}>{post.data.title}</a></li>
@@ -43,18 +66,30 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   </section>
 
   <section id="calibration">
-    <h2>Where I'm strong, where I'm not</h2>
+    <div class="section-label">
+      <span class="section-label__num">04</span>
+      <h2>Where I'm strong, where I'm not</h2>
+      <div class="section-label__rule"></div>
+    </div>
     <p>Strong: LLM pipeline productionization, evaluation design, multi-tenant SaaS architecture, product discovery grounded in measurement, interaction design for stochastic systems.</p>
     <p>Not my ground: ML research or model training. AWS production exposure is in progress. Agent-loop depth is being hand-built rather than claimed. My frontend is rusty relative to my backend.</p>
   </section>
 
   <section id="background">
-    <h2>Background</h2>
+    <div class="section-label">
+      <span class="section-label__num">05</span>
+      <h2>Background</h2>
+      <div class="section-label__rule"></div>
+    </div>
     <p>ChromaWay: backend tech lead for teams of up to 10 developers. Senseworks: backend engineer. Umeå University interaction design programme. The arc runs from design to backend to AI.</p>
   </section>
 
   <section id="now">
-    <h2>Now</h2>
+    <div class="section-label">
+      <span class="section-label__num">06</span>
+      <h2>Now</h2>
+      <div class="section-label__rule"></div>
+    </div>
     <p>Winding down SveaSync deliberately ahead of the Stockholm move. Evals course cohort September to October. Open to Stockholm roles from early 2027. Reach me at <a href="mailto:alfredpersson.se@gmail.com">alfredpersson.se@gmail.com</a>.</p>
   </section>
 </Base>
