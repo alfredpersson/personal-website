@@ -1,0 +1,28 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const studies = await getCollection('caseStudies', ({ data }) => data.status === 'live');
+  return studies.map((study) => ({ params: { slug: study.id }, props: { study } }));
+}
+const { study } = Astro.props;
+const { Content } = await render(study);
+const { title, problem, role, decisions, headlineNumber } = study.data;
+---
+<Base title={title} description={problem}>
+  <article>
+    <h1>{title}</h1>
+    <p><strong>{headlineNumber}</strong></p>
+    <p>{problem} <em>Role: {role}.</em></p>
+    <ul>
+      {decisions.map((d) => (
+        <li>Decided {d.decision} because {d.because}, measured by {d.measuredBy}.</li>
+      ))}
+    </ul>
+    <details>
+      <summary>The full story: reasoning, trade-offs, what went wrong</summary>
+      <Content />
+    </details>
+  </article>
+</Base>

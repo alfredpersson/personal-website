@@ -38,3 +38,6 @@ header.wrap nav { display: flex; gap: 1.25rem; padding: 1.25rem 0; }
 header.wrap nav a { color: var(--fg); text-decoration: none; }
 header.wrap nav a:first-child { font-weight: 700; margin-right: auto; }
 footer.wrap { color: var(--muted); font-size: 0.9rem; padding-bottom: 2rem; }
+.case-card { border: 1px solid var(--rule); border-radius: 6px; padding: 1rem 1.25rem; margin: 1rem 0; }
+.case-card h3 { margin-top: 0; }
+.reserved { color: var(--muted); font-size: 0.85rem; font-weight: 400; margin-left: 0.5rem; }
