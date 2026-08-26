@@ -41,7 +41,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
     <p>Take an AI feature from idea to production: user discovery, system design, shipping, and measuring whether it works. Concretely:</p>
     <div class="ledger">
       <div class="ledger-row two-layer-row">
-        <span class="ledger-row__label">01</span>
         <div class="two-layer">
           <h3>Start from the user's problem.</h3>
           <p>I talk to users to understand what they are trying to get done, and use AI only where it is genuinely the best tool. AI inference is the slowest, most expensive, and least predictable way to solve a problem, so every part of a feature that can be ordinary software should be.</p>
@@ -49,7 +48,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
         </div>
       </div>
       <div class="ledger-row two-layer-row">
-        <span class="ledger-row__label">02</span>
         <div class="two-layer">
           <h3>Design the right kind of system for the task.</h3>
           <p>Sometimes that is a normal, predictable workflow that calls AI for specific steps. Sometimes it is a system that searches your own data before answering. Sometimes it is an agent that plans and acts on its own. I pick the shape by the task, and keep everything around the AI boring and reliable.</p>
@@ -57,7 +55,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
         </div>
       </div>
       <div class="ledger-row two-layer-row">
-        <span class="ledger-row__label">03</span>
         <div class="two-layer">
           <h3>Agree on what "working" means before building.</h3>
           <p>Before writing code, I collect real example inputs and write down what a correct result looks like for each one. Those examples become automatic checks that run on every change, showing whether each change made quality better or worse.</p>
@@ -65,7 +62,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
         </div>
       </div>
       <div class="ledger-row two-layer-row">
-        <span class="ledger-row__label">04</span>
         <div class="two-layer">
           <h3>Plan for the model being wrong.</h3>
           <p>A model will be wrong some of the time, so I design that moment on purpose: what the user sees, when the system says it is not sure, and when a human takes over. Every failure that shows up in production becomes another automatic check, so the same mistake cannot return unnoticed.</p>
@@ -73,7 +69,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
         </div>
       </div>
       <div class="ledger-row two-layer-row">
-        <span class="ledger-row__label">05</span>
         <div class="two-layer">
           <h3>Measure whether it actually helps.</h3>
           <p>I track whether the feature helps in numbers: who uses it, whether it resolves what they came for, and how good the outputs are, checked by both humans and automated grading.</p>

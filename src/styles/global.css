@@ -130,6 +130,7 @@ footer.wrap { font-family: var(--font-mono); color: var(--muted); font-size: 0.8
 }
 
 /* two-layer items (plain + technical restatement) */
+.ledger-row.two-layer-row { grid-template-columns: minmax(0, 1fr); }
 .two-layer h3 { font-family: var(--font-serif); font-size: 19px; font-weight: 700; line-height: 1.3; margin: 0 0 10px 0; }
 .two-layer p { margin: 0 0 10px 0; }
 .two-layer .technical { font-family: var(--font-mono); font-size: 12.5px; line-height: 1.5; color: var(--muted); margin: 0; }
