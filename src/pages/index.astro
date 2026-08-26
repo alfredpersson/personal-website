@@ -31,21 +31,128 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
     </p>
   </header>
 
-  <section id="how-i-work">
+  <section id="what-i-do">
     <div class="section-label">
       <span class="section-label__num">01</span>
-      <h2>How I work</h2>
+      <h2>What I do</h2>
       <div class="section-label__rule"></div>
     </div>
-    <p>In AI products, what a feature should do only becomes real as concrete examples with pass or fail judgments. I write those first, before the feature exists, and they stay as the regression suite after it ships.</p>
-    <p>I ask whether AI is the right tool before reaching for it. Plenty of problems are better served by a form, a rule, or a database query, and an AI feature that should have been a button erodes user trust.</p>
-    <p>I design the failure case first. A stochastic system will be wrong some of the time, so the product question is what happens then: who notices, what the user sees, and how the error becomes a test.</p>
-    <p>Constraints and honest refusals beat feature sprawl. A system that says "I cannot do that reliably" keeps the trust that a confident wrong answer spends.</p>
+    <p>I build products where AI is the core of the product, or a feature the product has come to depend on.</p>
+    <p>Take an AI feature from idea to production: user discovery, system design, shipping, and measuring whether it works. Concretely:</p>
+    <div class="ledger">
+      <div class="ledger-row two-layer-row">
+        <span class="ledger-row__label">01</span>
+        <div class="two-layer">
+          <h3>Start from the user's problem.</h3>
+          <p>I talk to users to understand what they are trying to get done, and use AI only where it is genuinely the best tool. AI inference is the slowest, most expensive, and least predictable way to solve a problem, so every part of a feature that can be ordinary software should be.</p>
+          <p class="technical">In technical terms: Jobs-to-be-done discovery; deterministic logic wherever possible; model calls reserved for the steps that need judgment or language.</p>
+        </div>
+      </div>
+      <div class="ledger-row two-layer-row">
+        <span class="ledger-row__label">02</span>
+        <div class="two-layer">
+          <h3>Design the right kind of system for the task.</h3>
+          <p>Sometimes that is a normal, predictable workflow that calls AI for specific steps. Sometimes it is a system that searches your own data before answering. Sometimes it is an agent that plans and acts on its own. I pick the shape by the task, and keep everything around the AI boring and reliable.</p>
+          <p class="technical">In technical terms: Deterministic workflows with LLM steps, RAG pipelines, tool-using agents, human-in-the-loop escalation, multi-tenant isolation.</p>
+        </div>
+      </div>
+      <div class="ledger-row two-layer-row">
+        <span class="ledger-row__label">03</span>
+        <div class="two-layer">
+          <h3>Agree on what "working" means before building.</h3>
+          <p>Before writing code, I collect real example inputs and write down what a correct result looks like for each one. Those examples become automatic checks that run on every change, showing whether each change made quality better or worse.</p>
+          <p class="technical">In technical terms: Hand-labeled eval sets with pass or fail criteria, run in CI as the regression suite.</p>
+        </div>
+      </div>
+      <div class="ledger-row two-layer-row">
+        <span class="ledger-row__label">04</span>
+        <div class="two-layer">
+          <h3>Plan for the model being wrong.</h3>
+          <p>A model will be wrong some of the time, so I design that moment on purpose: what the user sees, when the system says it is not sure, and when a human takes over. Every failure that shows up in production becomes another automatic check, so the same mistake cannot return unnoticed.</p>
+          <p class="technical">In technical terms: Confidence gates, designed fallback and escalation paths, production errors converted into permanent CI test cases.</p>
+        </div>
+      </div>
+      <div class="ledger-row two-layer-row">
+        <span class="ledger-row__label">05</span>
+        <div class="two-layer">
+          <h3>Measure whether it actually helps.</h3>
+          <p>I track whether the feature helps in numbers: who uses it, whether it resolves what they came for, and how good the outputs are, checked by both humans and automated grading.</p>
+          <p class="technical">In technical terms: Production trace analysis, LLM-as-judge scoring validated against human grading, quality and usage metrics per release.</p>
+        </div>
+      </div>
+      <div class="ledger-bottom"></div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="section-label">
+      <span class="section-label__num">02</span>
+      <h2>Stack</h2>
+      <div class="section-label__rule"></div>
+    </div>
+    <div class="stack-list">
+      <div class="stack-row">
+        <span class="stack-row__label">Languages</span>
+        <p>TypeScript and Node.js, Python, SQL and Postgres. React and Next.js when the work needs it.</p>
+      </div>
+      <div class="stack-row">
+        <span class="stack-row__label">LLM engineering</span>
+        <p>agent and tool design, RAG pipelines, structured outputs, streaming, runtime guardrails, human-in-the-loop design, multi-tenant isolation.</p>
+      </div>
+      <div class="stack-row">
+        <span class="stack-row__label">Evaluation</span>
+        <p>error analysis on production traces, failure taxonomies, LLM-as-judge validated against human grading, CI suites from production errors, Langfuse.</p>
+      </div>
+      <div class="stack-row">
+        <span class="stack-row__label">Infra</span>
+        <p>Cloudflare Workers, Docker, Redis, Modal, FastAPI, GitHub Actions.</p>
+      </div>
+      <div class="stack-bottom"></div>
+    </div>
+  </section>
+
+  <section id="availability">
+    <div class="section-label">
+      <span class="section-label__num">03</span>
+      <h2>Availability</h2>
+      <div class="section-label__rule"></div>
+    </div>
+    <div class="availability">
+      <p class="availability-status">Open to senior AI engineer roles in Stockholm from early 2027.</p>
+      <p>Until then: winding down SveaSync deliberately ahead of the move; evals course cohort September to October.</p>
+      <p class="availability-contact"><a href="mailto:alfredpersson.se@gmail.com">alfredpersson.se@gmail.com</a></p>
+    </div>
+  </section>
+
+  <section id="fit">
+    <div class="section-label">
+      <span class="section-label__num">04</span>
+      <h2>Fit</h2>
+      <div class="section-label__rule"></div>
+    </div>
+    <div class="fit-columns">
+      <div class="fit-column">
+        <h3>Good fit</h3>
+        <ul>
+          <li>Roles with broad ownership and agency: talking to users, deciding what to build, building it, and answering for the results.</li>
+          <li>AI-native products, where the AI workflow is the product.</li>
+          <li>Established products adding AI features users will come to depend on.</li>
+        </ul>
+      </div>
+      <div class="fit-column fit-column--less">
+        <h3>Less of a fit</h3>
+        <ul>
+          <li>Roles where work arrives as pre-scoped tickets and the problems are decided elsewhere.</li>
+          <li>Roles boxed into a single layer, like frontend-only or backend-only positions.</li>
+          <li>ML research or model training.</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section id="case-studies">
     <div class="section-label">
-      <span class="section-label__num">02</span>
+      <span class="section-label__num">05</span>
       <h2>Case studies</h2>
       <div class="section-label__rule"></div>
     </div>
@@ -54,7 +161,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 
   <section id="writing">
     <div class="section-label">
-      <span class="section-label__num">03</span>
+      <span class="section-label__num">06</span>
       <h2>Writing</h2>
       <div class="section-label__rule"></div>
     </div>
@@ -65,31 +172,12 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
     </ul>
   </section>
 
-  <section id="calibration">
-    <div class="section-label">
-      <span class="section-label__num">04</span>
-      <h2>Where I'm strong, where I'm not</h2>
-      <div class="section-label__rule"></div>
-    </div>
-    <p>Strong: LLM pipeline productionization, evaluation design, multi-tenant SaaS architecture, product discovery grounded in measurement, interaction design for stochastic systems.</p>
-    <p>Not my ground: ML research or model training. AWS production exposure is in progress. Agent-loop depth is being hand-built rather than claimed. My frontend is rusty relative to my backend.</p>
-  </section>
-
   <section id="background">
     <div class="section-label">
-      <span class="section-label__num">05</span>
+      <span class="section-label__num">07</span>
       <h2>Background</h2>
       <div class="section-label__rule"></div>
     </div>
     <p>ChromaWay: backend tech lead for teams of up to 10 developers. Senseworks: backend engineer. Umeå University interaction design programme. The arc runs from design to backend to AI.</p>
-  </section>
-
-  <section id="now">
-    <div class="section-label">
-      <span class="section-label__num">06</span>
-      <h2>Now</h2>
-      <div class="section-label__rule"></div>
-    </div>
-    <p>Winding down SveaSync deliberately ahead of the Stockholm move. Evals course cohort September to October. Open to Stockholm roles from early 2027. Reach me at <a href="mailto:alfredpersson.se@gmail.com">alfredpersson.se@gmail.com</a>.</p>
   </section>
 </Base>
