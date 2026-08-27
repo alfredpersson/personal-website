@@ -43,19 +43,19 @@ The support widget lives in the corner of a mock SaaS dashboard:
 
 The widget renders each response type differently based on the pipeline's routing decision:
 
-**Fully answered** — a grounded answer with step-by-step instructions and source article links:
+**Fully answered**: a grounded answer with step-by-step instructions and source article links:
 
 ![Fully answered query with source links](/assets/rag-support-assistant/fully_answered.png)
 
-**Follow-up question** — when retrieval finds nothing relevant, the bot asks a clarifying question instead of guessing:
+**Follow-up question**: when retrieval finds nothing relevant, the bot asks a clarifying question instead of guessing:
 
 ![Follow-up clarifying question](/assets/rag-support-assistant/followup_question.png)
 
-**High-stakes escalation** — sensitive queries (cancellations, billing disputes) get an empathetic response with a path to a human agent:
+**High-stakes escalation**: sensitive queries (cancellations, billing disputes) get an empathetic response with a path to a human agent:
 
 ![High-stakes query with empathetic response and escalation](/assets/rag-support-assistant/high_stakes.png)
 
-**Low confidence** — the answer is shown with a disclaimer and no source links:
+**Low confidence**: the answer is shown with a disclaimer and no source links:
 
 ![Low confidence response with disclaimer](/assets/rag-support-assistant/low_confidence.png)
 
@@ -65,8 +65,8 @@ Every question is classified into one of five categories (**answerable**, **nons
 
 For queries that go through retrieval, the pipeline applies two confidence gates before presenting an answer:
 
-1. **Relevance gate** — if the cross-encoder reranker's top score is below 2.0, the retrieved results aren't good enough. Instead of generating from weak context, the bot asks a clarifying follow-up question.
-2. **Confidence gate** — if the top score is below 5.0, the answer is shown but the bot signals that it isn't fully sure and asks the user to be more specific.
+1. **Relevance gate**: if the cross-encoder reranker's top score is below 2.0, the retrieved results aren't good enough. Instead of generating from weak context, the bot asks a clarifying follow-up question.
+2. **Confidence gate**: if the top score is below 5.0, the answer is shown but the bot signals that it isn't fully sure and asks the user to be more specific.
 
 After generation, a **self-critique** step assesses whether the answer fully, partially, or cannot address the question. This determines whether to offer human escalation and how much confidence to convey to the user.
 
@@ -83,7 +83,7 @@ After generation, a **self-critique** step assesses whether the answer fully, pa
 | Retrieval finds nothing relevant | Clarifying follow-up question | Avoids hallucinating from weak context; keeps the conversation going |
 | Low retrieval confidence (score 2.0–5.0) | Disclaimer above the answer, no source links | Context is good enough to attempt an answer but not good enough to cite confidently |
 | Self-critique: CANNOT_ANSWER | "I couldn't find an answer" + connect-to-agent button | Immediate escalation path instead of a vague hedge |
-| Self-critique: PARTIALLY_ANSWERED | Answer + 1 source link + soft inline escalation link | Partial answers are still useful — a soft text link gives the user an easy path if the answer isn't enough |
+| Self-critique: PARTIALLY_ANSWERED | Answer + 1 source link + soft inline escalation link | Partial answers are still useful: a soft text link gives the user an easy path if the answer isn't enough |
 | Self-critique: FULLY_ANSWERED | Answer + up to 2 source links | Confident answer with "read more" links to the full articles |
 | High-stakes query | Empathetic acknowledgment + retention offer + escalation | Sensitive queries need tone and structure control, not a help article |
 | Out-of-scope query | Escalation offer | Doesn't pretend to help with things it can't handle |
