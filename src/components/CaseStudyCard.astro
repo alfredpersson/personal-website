@@ -5,7 +5,10 @@ interface Props {
 }
 const { study } = Astro.props;
 const { title, problem, role, decisions, headlineNumber, status } = study.data;
-const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+const formatDecision = (s: string) => {
+  const stripped = s.replace(/^to\s+/, '');
+  return stripped.charAt(0).toUpperCase() + stripped.slice(1);
+};
 ---
 <article class="case-card">
   <div class="case-card__head">
@@ -18,9 +21,10 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   <p class="problem">{problem} <em>Role: {role}.</em></p>
   <div class="ledger">
     {decisions.map((d) => (
-      <div class="ledger-row">
-        <span class="ledger-row__label">Decided</span>
-        <p>{capitalize(d.decision)}, because {d.because}. <span class="measured-by">measured by {d.measuredBy}</span></p>
+      <div class="ledger-row decision-row">
+        <p class="decision-row__decision">{formatDecision(d.decision)}</p>
+        <p class="decision-row__because">Because {d.because}.</p>
+        <p class="decision-row__measured">Measured by: {d.measuredBy}</p>
       </div>
     ))}
     <div class="ledger-bottom"></div>

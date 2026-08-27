@@ -15,7 +15,14 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
         <p class="role">Senior AI Engineer</p>
         <p class="hero-headline">I build AI products that prove they work, on every change.</p>
         <p class="hero-scope"><span class="hero-scope__label">End-to-end ownership:</span> user discovery, system design, shipping, and grading the AI's output against real examples.</p>
-        <p class="situation">Stockholm from early 2027. Previously tech lead at ChromaWay, founder of SveaSync.</p>
+        <p class="situation situation-location">
+          <svg class="pin-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Stockholm (from early 2027)
+        </p>
+        <p class="situation">Previously tech lead at ChromaWay, founder of <a href="/case-studies/sveasync/">SveaSync</a>.</p>
       </div>
       <div class="hero-photo-wrap">
         <span class="hero-photo-mark"></span>
@@ -174,6 +181,52 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
       <h2>Background</h2>
       <div class="section-label__rule"></div>
     </div>
-    <p>ChromaWay: backend tech lead for teams of up to 10 developers. Senseworks: backend engineer. Umeå University interaction design programme. The arc runs from design to backend to AI.</p>
+    <div class="resume">
+      <details class="resume-entry">
+        <summary>
+          <span class="resume-entry__row">
+            <span class="resume-entry__title"><span class="resume-entry__company">ChromaWay</span> <span class="resume-entry__role">Senior Software Engineer / Tech Lead, Platform &amp; Distributed Systems</span></span>
+            <span class="resume-entry__years">Stockholm, 2021 to 2026</span>
+          </span>
+        </summary>
+        <ul>
+          <li>Backend tech lead on Chromia, a relational Layer 1 blockchain platform; led teams of up to 10 developers and reviewed architecture and implementation across the platform.</li>
+          <li>Took several partner projects from zero to one: early conversations with the partner company, a first version built from scratch, then iteration on their feedback.</li>
+          <li>Built the blockchain backend for Mines of Dalarnia with one colleague: economics and items for a game that processed over 1M real-money transactions and peaked as the second most used app on Binance Chain.</li>
+          <li>Owned the native staking system (1,000+ users). Found and fixed a critical bug causing exponential data growth; the fix resolved a network-wide performance issue.</li>
+          <li>Built EVM bridging to Ethereum-family chains, NFC garment authentication for a fashion company, and on-chain crowdfunding and real-estate tokenization platforms handling real financial transactions.</li>
+          <li>First real consumer of the platform's on-chain AI services: built AI inference and RAG demos on it and fed bugs and improvements back to the core team.</li>
+          <li>Chromia tech expert embedded with the documentation and onboarding team: shaped user-test strategy and questionnaire structure with the team lead, running tests asynchronously through Lyssna.</li>
+        </ul>
+      </details>
+      <details class="resume-entry">
+        <summary>
+          <span class="resume-entry__row">
+            <span class="resume-entry__title"><span class="resume-entry__company">SveaSync</span> <span class="resume-entry__role">Co-founder and technical lead</span></span>
+            <span class="resume-entry__years">2026</span>
+          </span>
+        </summary>
+        <p>The full story, decisions, and architecture are in the <a href="/case-studies/sveasync/">case study</a>.</p>
+      </details>
+      <details class="resume-entry">
+        <summary>
+          <span class="resume-entry__row">
+            <span class="resume-entry__title"><span class="resume-entry__company">Senseworks</span> <span class="resume-entry__role">Frontend Developer (part-time)</span></span>
+            <span class="resume-entry__years">2020 to 2021</span>
+          </span>
+        </summary>
+        <p>B2B SaaS for auditors and accountants. Data visualization in React and TypeScript: tables, graphs, REST API integration, Redux Toolkit.</p>
+      </details>
+      <details class="resume-entry">
+        <summary>
+          <span class="resume-entry__row">
+            <span class="resume-entry__title"><span class="resume-entry__company">Umeå University</span> <span class="resume-entry__role">MSc in Engineering programme, Interaction Technology and Design</span></span>
+            <span class="resume-entry__years">2016 to 2021</span>
+          </span>
+        </summary>
+        <p>Five-year programme spanning programming, algorithms, statistics, human-computer interaction, human-centred AI, and UX evaluation and research. Exchange semester at Northern Arizona University, fall 2019.</p>
+      </details>
+      <div class="resume-bottom"></div>
+    </div>
   </section>
 </Base>
