@@ -7,13 +7,14 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 ---
-<Base title="Alfred Persson, Senior AI Engineer" description="I own the product loop: user discovery, quality made testable, ship, measure.">
+<Base title="Alfred Persson, Senior AI Engineer" description="Senior AI Engineer. I build AI products that prove they work: LLM pipelines, evaluation systems, production guardrails, measured on every change.">
   <header class="hero">
     <div class="hero-grid">
       <div>
         <h1>Alfred<br>Persson</h1>
         <p class="role">Senior AI Engineer</p>
-        <p class="identity">I own the product loop: user discovery, quality made testable, ship, measure.</p>
+        <p class="identity" style="font-weight: 600;">I build AI products that prove they work, on every change.</p>
+        <p class="situation" style="margin: 0 0 10px 0;"><span style="font-family: var(--font-mono);">End-to-end ownership:</span> user discovery, system design, shipping, and grading the AI's output against real examples.</p>
         <p class="situation">Stockholm from early 2027. Previously tech lead at ChromaWay, founder of SveaSync.</p>
       </div>
       <div class="hero-photo-wrap">
@@ -38,7 +39,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
       <div class="section-label__rule"></div>
     </div>
     <p>I build products where AI is the core of the product, or a feature the product has come to depend on.</p>
-    <p>Take an AI feature from idea to production: user discovery, system design, shipping, and measuring whether it works. Concretely:</p>
+    <p>What owning that end to end means, concretely:</p>
     <div class="ledger">
       <div class="ledger-row two-layer-row">
         <div class="two-layer">
