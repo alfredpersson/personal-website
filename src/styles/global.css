@@ -191,6 +191,9 @@ footer.wrap { font-family: var(--font-mono); color: var(--muted); font-size: 0.8
 .hero .role { font-size: 26px; line-height: 1.3; margin: 0 0 22px 0; font-weight: 600; color: var(--accent); }
 .hero .identity { font-size: 19px; line-height: 1.5; margin: 0 0 10px 0; max-width: 30rem; }
 .hero .situation { font-size: 16px; line-height: 1.55; margin: 0; color: var(--muted); }
+.hero .hero-headline { font-size: 19px; line-height: 1.5; margin: 0 0 10px 0; max-width: 30rem; font-weight: 600; }
+.hero .hero-scope { font-size: 16px; line-height: 1.55; margin: 0 0 10px 0; color: var(--muted); }
+.hero .hero-scope__label { font-family: var(--font-mono); }
 .hero-links {
   font-family: var(--font-mono);
   font-size: 13px;
