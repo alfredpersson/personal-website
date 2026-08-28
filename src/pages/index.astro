@@ -15,13 +15,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
         <p class="role">Senior AI Engineer</p>
         <p class="hero-headline">I build AI products that prove they work, on every change.</p>
         <p class="hero-scope"><span class="hero-scope__label">End-to-end ownership:</span> user discovery, system design, shipping, and grading the AI's output against real examples.</p>
-        <p class="situation situation-location">
-          <svg class="pin-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-          Stockholm (from early 2027)
-        </p>
         <p class="situation">Previously tech lead at ChromaWay, founder of <a href="/case-studies/sveasync/">SveaSync</a>.</p>
       </div>
       <div class="hero-photo-wrap">
@@ -29,6 +22,13 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
         <div class="hero-photo">
           <img src="/assets/alfredpersson.jpg" alt="Alfred Persson" />
         </div>
+        <p class="photo-cap">
+          <svg class="pin-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Stockholm (early 2027)
+        </p>
       </div>
     </div>
     <p class="hero-links">
@@ -43,7 +43,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
     <div class="section-label">
       <span class="section-label__num">01</span>
       <h2>What I do</h2>
-      <div class="section-label__rule"></div>
     </div>
     <p>I build products where AI is the core of the product, or a feature the product has come to depend on.</p>
     <p>What owning that end to end means, concretely:</p>
@@ -91,7 +90,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
     <div class="section-label">
       <span class="section-label__num">02</span>
       <h2>Stack</h2>
-      <div class="section-label__rule"></div>
     </div>
     <div class="stack-list">
       <div class="stack-row">
@@ -114,24 +112,10 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
     </div>
   </section>
 
-  <section id="availability">
-    <div class="section-label">
-      <span class="section-label__num">03</span>
-      <h2>Availability</h2>
-      <div class="section-label__rule"></div>
-    </div>
-    <div class="availability">
-      <p class="availability-status">Open to senior AI engineer roles in Stockholm from early 2027.</p>
-      <p>Until then: winding down SveaSync deliberately ahead of the move; evals course cohort September to October.</p>
-      <p class="availability-contact"><a href="mailto:alfredpersson.se@gmail.com">alfredpersson.se@gmail.com</a></p>
-    </div>
-  </section>
-
   <section id="fit">
     <div class="section-label">
-      <span class="section-label__num">04</span>
+      <span class="section-label__num">03</span>
       <h2>Fit</h2>
-      <div class="section-label__rule"></div>
     </div>
     <div class="fit-columns">
       <div class="fit-column">
@@ -155,18 +139,16 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 
   <section id="case-studies">
     <div class="section-label">
-      <span class="section-label__num">05</span>
+      <span class="section-label__num">04</span>
       <h2>Case studies</h2>
-      <div class="section-label__rule"></div>
     </div>
     {studies.map((study) => <CaseStudyCard study={study} />)}
   </section>
 
   <section id="writing">
     <div class="section-label">
-      <span class="section-label__num">06</span>
+      <span class="section-label__num">05</span>
       <h2>Writing</h2>
-      <div class="section-label__rule"></div>
     </div>
     <ul>
       {posts.map((post) => (
@@ -177,11 +159,11 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 
   <section id="background">
     <div class="section-label">
-      <span class="section-label__num">07</span>
+      <span class="section-label__num">06</span>
       <h2>Background</h2>
-      <div class="section-label__rule"></div>
     </div>
     <div class="resume">
+      <p class="resume-sublabel">Experience</p>
       <details class="resume-entry">
         <summary>
           <span class="resume-entry__row">
@@ -217,16 +199,30 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
         </summary>
         <p>B2B SaaS for auditors and accountants. Data visualization in React and TypeScript: tables, graphs, REST API integration, Redux Toolkit.</p>
       </details>
-      <details class="resume-entry">
-        <summary>
-          <span class="resume-entry__row">
-            <span class="resume-entry__title"><span class="resume-entry__company">Umeå University</span> <span class="resume-entry__role">MSc in Engineering programme, Interaction Technology and Design</span></span>
-            <span class="resume-entry__years">2016 to 2021</span>
-          </span>
-        </summary>
+      <p class="resume-sublabel">Education</p>
+      <div class="resume-entry resume-entry--static">
+        <span class="resume-entry__row">
+          <span class="resume-entry__title"><span class="resume-entry__company">Umeå University</span> <span class="resume-entry__role">MSc in Engineering programme, Interaction Technology and Design</span></span>
+          <span class="resume-entry__years">2016 to 2021</span>
+        </span>
         <p>Five-year programme spanning programming, algorithms, statistics, human-computer interaction, human-centred AI, and UX evaluation and research. Exchange semester at Northern Arizona University, fall 2019.</p>
-      </details>
+      </div>
       <div class="resume-bottom"></div>
     </div>
   </section>
+
+  <aside class="toc" aria-label="On this page">
+    <p class="toc__head">On this page</p>
+    <a href="#what-i-do"><span class="toc__num">01</span> What I do</a>
+    <a href="#stack"><span class="toc__num">02</span> Stack</a>
+    <a href="#fit"><span class="toc__num">03</span> Fit</a>
+    <a href="#case-studies"><span class="toc__num">04</span> Case studies</a>
+    <div class="toc__sub">
+      {studies.map((study) => (
+        <a href={`#cs-${study.id}`}>{study.data.title.split(':')[0]}</a>
+      ))}
+    </div>
+    <a href="#writing"><span class="toc__num">05</span> Writing</a>
+    <a href="#background"><span class="toc__num">06</span> Background</a>
+  </aside>
 </Base>

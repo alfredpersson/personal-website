@@ -10,7 +10,7 @@ const formatDecision = (s: string) => {
   return stripped.charAt(0).toUpperCase() + stripped.slice(1);
 };
 ---
-<article class="case-card">
+<article class="case-card" id={`cs-${study.id}`}>
   <div class="case-card__head">
     <h3>
       {status === 'live' ? <a href={`/case-studies/${study.id}/`}>{title}</a> : title}
