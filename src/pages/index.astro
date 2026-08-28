@@ -117,23 +117,33 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
       <span class="section-label__num">03</span>
       <h2>Fit</h2>
     </div>
-    <div class="fit-columns">
-      <div class="fit-column">
-        <h3>Good fit</h3>
-        <ul>
-          <li>Roles with broad ownership and agency: talking to users, deciding what to build, building it, and answering for the results.</li>
-          <li>AI-native products, where the AI workflow is the product.</li>
-          <li>Established products adding AI features users will come to depend on.</li>
-        </ul>
+    <div class="fit-table">
+      <div class="fit-pair fit-pair--head">
+        <span class="fit-pair__aspect"></span>
+        <span class="fit-col-head">Good fit</span>
+        <span class="fit-col-head fit-col-head--less">Less of a fit</span>
       </div>
-      <div class="fit-column fit-column--less">
-        <h3>Less of a fit</h3>
-        <ul>
-          <li>Roles where work arrives as pre-scoped tickets and the problems are decided elsewhere.</li>
-          <li>Roles boxed into a single layer, like frontend-only or backend-only positions.</li>
-          <li>ML research or model training.</li>
-        </ul>
+      <div class="fit-pair">
+        <span class="fit-pair__aspect">Ownership</span>
+        <p>Deciding what to build: talking to users, choosing the problems worth solving, and answering for the results.</p>
+        <p class="fit-less">Work that arrives as pre-scoped tickets, with the problems decided elsewhere.</p>
       </div>
+      <div class="fit-pair">
+        <span class="fit-pair__aspect">Scope</span>
+        <p>Owning a whole outcome across frontend, backend, and AI, working with every team it takes to ship it.</p>
+        <p class="fit-less">Roles boxed into a single layer, like frontend-only, backend-only, or evals-only.</p>
+      </div>
+      <div class="fit-pair">
+        <span class="fit-pair__aspect">Product</span>
+        <p>Products built around AI: the AI workflow is the product, or a feature users have come to depend on.</p>
+        <p class="fit-less">Products that do not ship AI to users, or use it only as a development tool.</p>
+      </div>
+      <div class="fit-pair">
+        <span class="fit-pair__aspect">AI work</span>
+        <p>Applied AI: products built on foundation models, with quality measured on every change.</p>
+        <p class="fit-less">ML research or training models from scratch.</p>
+      </div>
+      <div class="fit-bottom"></div>
     </div>
   </section>
 
