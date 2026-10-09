@@ -41,6 +41,10 @@ hr { border: 0; border-top: 1px solid var(--rule); }
 table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; font-size: 0.95em; display: block; overflow-x: auto; }
 th, td { border: 1px solid var(--rule); padding: 0.5rem 0.75rem; text-align: left; vertical-align: top; }
 th { font-family: var(--font-mono); font-size: 0.75em; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+/* images inside posts and case studies fit the text column; screenshots are capped in height */
+article img { max-width: 100%; height: auto; display: block; margin: 1.25rem 0; }
+article img[src$=".png"] { max-height: 460px; width: auto; }
+.case-body { margin-top: 2rem; }
 details { border: 1px solid var(--rule); border-radius: 4px; padding: 0.75rem 1rem; margin: 1rem 0; }
 details > summary { cursor: pointer; font-weight: 600; }
 details[open] > summary { margin-bottom: 0.75rem; }
@@ -74,10 +78,9 @@ header.wrap nav a:not(:first-child) {
 /* footer */
 footer.wrap { font-family: var(--font-mono); color: var(--muted); font-size: 0.8125rem; padding-bottom: 2rem; }
 
-/* numbered section label */
+/* section label */
 .section-label { display: flex; align-items: baseline; gap: 14px; margin: 110px 0 26px 0; position: relative; padding-top: 15px; }
 .section-label::before { content: ''; position: absolute; top: 0; left: 0; width: 30px; height: 3px; background: var(--accent-strong); }
-.section-label__num { font-family: var(--font-mono); font-size: 13px; font-weight: 600; color: var(--accent); }
 .section-label h2 {
   font-size: 15px;
   font-weight: 600;
@@ -103,9 +106,12 @@ footer.wrap { font-family: var(--font-mono); color: var(--muted); font-size: 0.8
 
 /* case study card */
 .case-card { padding: 4px 0 0 0; margin: 1rem 0; }
+.case-card + .case-card { margin-top: 4.5rem; }
 .case-card__head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 0 0 10px 0; }
 .case-card__head h3 { font-size: 24px; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
 .case-card__head h3 a { color: var(--fg); text-decoration: none; }
+.case-card__head h3 a:hover { color: var(--accent); text-decoration: underline; }
+.case-card__more { font-family: var(--font-mono); font-size: 13px; margin: 14px 0 0 0; }
 .case-card .problem { font-size: 16.5px; line-height: 1.55; margin: 0 0 20px 0; }
 .case-card .problem em { color: var(--muted); }
 
@@ -130,6 +136,13 @@ footer.wrap { font-family: var(--font-mono); color: var(--muted); font-size: 0.8
 .decision-row__decision { font-family: var(--font-serif); font-weight: 700; font-size: 17px; line-height: 1.4; margin: 0 0 6px 0; }
 .decision-row__because { margin: 0 0 6px 0; }
 .decision-row__measured { font-family: var(--font-mono); font-size: 12.5px; line-height: 1.5; color: var(--muted); margin: 0; }
+
+/* one square per row: the row's lines hang under it */
+.ledger-row.two-layer-row, .ledger-row.decision-row { position: relative; padding-left: 22px; }
+.ledger-row.decision-row { display: block; }
+.ledger-row .decision-row__measured { font-size: 12.5px; }
+.ledger-row.two-layer-row::before, .ledger-row.decision-row::before { content: ''; position: absolute; left: 0; top: 22px; width: 8px; height: 8px; background: var(--accent-strong); }
+.row-tag { font-family: var(--font-mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); margin-right: 6px; }
 
 /* stack rows */
 .stack-list { display: flex; flex-direction: column; }
@@ -279,5 +292,4 @@ footer.wrap { font-family: var(--font-mono); color: var(--muted); font-size: 0.8
 }
 .toc a { display: flex; gap: 10px; color: var(--muted); text-decoration: none; padding: 4px 0; }
 .toc a:hover { color: var(--accent); }
-.toc__num { color: var(--accent-strong); }
 .toc__sub a { padding: 3px 0 3px 26px; font-size: 11.5px; }

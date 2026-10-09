@@ -26,14 +26,13 @@ const formatDecision = (s: string) => {
         <div class="ledger-row decision-row">
           <p class="decision-row__decision">{formatDecision(d.decision)}</p>
           <p class="decision-row__because">Because {d.because}.</p>
-          <p class="decision-row__measured">Measured by: {d.measuredBy}</p>
+          <p class="decision-row__measured"><span class="row-tag">Measured by</span>{d.measuredBy}</p>
         </div>
       ))}
       <div class="ledger-bottom"></div>
     </div>
-    <details>
-      <summary>The full story: reasoning, trade-offs, what went wrong</summary>
+    <div class="case-body">
       <Content />
-    </details>
+    </div>
   </article>
 </Base>
