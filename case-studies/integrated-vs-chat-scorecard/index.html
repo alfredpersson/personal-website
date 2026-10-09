@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Integrated vs chat: a measured comparison</title><meta name="description" content="Teams default to a chat UI for AI features. Whether an integrated, structured interface actually performs better on the same workflow was an assumption I wanted numbers for."><link rel="canonical" href="https://alfredpersson.com/case-studies/integrated-vs-chat-scorecard/"><link rel="icon" href="/favicon.png"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="Alfred Persson" href="/rss.xml"><meta property="og:type" content="website"><meta property="og:site_name" content="Alfred Persson"><meta property="og:title" content="Integrated vs chat: a measured comparison"><meta property="og:description" content="Teams default to a chat UI for AI features. Whether an integrated, structured interface actually performs better on the same workflow was an assumption I wanted numbers for."><meta property="og:url" content="https://alfredpersson.com/case-studies/integrated-vs-chat-scorecard/"><meta property="og:image" content="https://alfredpersson.com/og-default.png"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/_astro/_slug_.lZjGrmFV.css"></head> <body> <header class="wrap"> <nav> <a href="/">Alfred Persson</a> <a href="/case-studies/">Case studies</a> <a href="/framework/">Framework</a> <a href="/blog/">Writing</a> </nav> </header> <main class="wrap">  <article> <div class="case-card__head"> <h1>Integrated vs chat: a measured comparison</h1> <span class="chip">80.8% vs 64.2% action accuracy, integrated vs chat, on a 73-item eval</span> </div> <p class="problem">Teams default to a chat UI for AI features. Whether an integrated, structured interface actually performs better on the same workflow was an assumption I wanted numbers for. <em>Role: Sole builder.</em></p> <div class="ledger"> <div class="ledger-row decision-row"> <p class="decision-row__decision">Hold the model constant and vary only the interface</p> <p class="decision-row__because">Because otherwise interface effects are confounded with model quality.</p> <p class="decision-row__measured"><span class="row-tag">Measured by</span>action accuracy on a 73-item hand-labeled eval set</p> </div><div class="ledger-row decision-row"> <p class="decision-row__decision">Ground every claim with two independent judges (Claude Opus 4.7 and GPT-5)</p> <p class="decision-row__because">Because a single judge bakes one model&#39;s bias into the results.</p> <p class="decision-row__measured"><span class="row-tag">Measured by</span>substring grounding rates per judge, 99.3% integrated vs 93.4% chat</p> </div><div class="ledger-row decision-row"> <p class="decision-row__decision">Keep the eval run that failed, together with the fix and the run after it</p> <p class="decision-row__because">Because a scorecard is only useful if it can catch a problem.</p> <p class="decision-row__measured"><span class="row-tag">Measured by</span>one recorded case: industry classification went from 32.9% to 94.5% after the fix</p> </div> <div class="ledger-bottom"></div> </div> <div class="case-body"> <p>Code: <a href="https://github.com/alfredpersson/lead-enrichment-eval">github.com/alfredpersson/lead-enrichment-eval</a>. Live demo: <a href="https://demo.alfredpersson.com">demo.alfredpersson.com</a>.</p>
+<h2 id="overview">Overview</h2>
+<p>Most B2B SaaS teams ship AI features as a chat widget. The widget is fast to build, looks like AI, and answers the buyer question “do you have AI?” with one yes. The harder design question is whether chat is the right shape for the workflow underneath. This demo answers the question on a concrete task by building the same workflow twice and putting both surfaces on the same scoreboard.</p>
+<p>The task is sales lead enrichment. A user pastes a profile and a company description; the system extracts structured fields, classifies the lead, scores fit against a fixed B2B SaaS ICP, generates source-quoted claims, drafts an outreach hook, and recommends an action (auto-add, propose, discard, or refuse). Two builds run that workflow:</p>
+<ul>
+<li>The <strong>integrated build</strong> runs Sonnet 4.6 through a strict <code>enrich_lead</code> tool schema, with extended thinking on a 4,000-token budget and a hard rule that every claim must cite a verbatim source quote from the input.</li>
+<li>The <strong>chat build</strong> runs the same Sonnet 4.6 with a task-describing system prompt and the ICP as context. No tools, no schema, no grounding rule. Multi-turn streaming chat with a Haiku 4.5 extractor pulling structured fields from the response for scoring.</li>
+</ul>
+<p>Both surfaces are productized to the same standard: lead queue, paste composer, status pills, themed palette, in-product diagnostics. The only difference between them is the contract with the model, and that difference is what the scorecard measures.</p>
+<h2 id="the-two-builds-side-by-side">The two builds, side by side</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Dimension</th><th>Integrated</th><th>Chat</th></tr></thead><tbody><tr><td>Output contract</td><td>Strict <code>enrich_lead</code> tool schema</td><td>Free-form prose</td></tr><tr><td>Grounding rule</td><td>Per-claim verbatim source quote</td><td>No structural requirement</td></tr><tr><td>Inference shape</td><td>Single structured call</td><td>Multi-turn chat + Haiku extractor</td></tr><tr><td>Extended thinking</td><td>4,000-token budget</td><td>Off</td></tr><tr><td>Model</td><td>claude-sonnet-4-6</td><td>claude-sonnet-4-6</td></tr></tbody></table>
+<p>The chat build got the same model, the same interface work and the same care with the prompt. The one thing it lacks is the model-side contract: it has no tool to call, no schema for the output and no grounding rule. The scorecard reports where that shows up and where it does not.</p>
+<h2 id="how-the-integrated-build-runs">How the integrated build runs</h2>
+<p><img src="/assets/integrated-vs-chat-pipeline.svg" alt="Flowchart of the integrated build: profile and company text enter a Modal endpoint, pass a language gate, then a single Anthropic tool call extracts fields, classifies, scores fit, generates source-quoted claims, drafts a hook, and picks an action; a substring check and fit thresholds route the result to auto_add, propose, or discard"></p>
+<p>The whole chain happens inside one structured tool call. Extended thinking gives the model space to reason about ICP fit before committing to a fit score; the schema forces every output field into a known shape; the substring check is deterministic, not judge-mediated. The action threshold is read off the fit score and the grounding state, not asked of the model.</p>
+<p>The chat build runs the same model with a task-describing system prompt and lets the model produce free-form prose. A Haiku 4.5 extractor pass runs at eval time only to pull structured fields out of the response so chat and integrated outputs can be scored against the same gold labels.</p>
+<h2 id="what-the-scorecard-measures">What the scorecard measures</h2>
+<p>73 hand-labelled items: 30 synthetic B2B SaaS profiles, 20 adversarial cases (prompt injections, jailbreak attempts, contradictory data, sparse input, multilingual injection), 13 edge cases, plus the 5 pre-loaded exemplars seeded in both UIs. Gold values: structured fields, classification, a 0.0–1.0 fit score with five named dimensions, the claims a hook may use with verbatim source quotes, and the expected action.</p>
+<p>The metrics split into three tiers. The deterministic block carries the credibility weight, the judged block is reported but flagged as second-tier, and the robustness pass tests perturbed inputs.</p>
+<p><strong>Deterministic.</strong> Classification accuracy per field. ICP fit correlation (Pearson and Spearman). Action accuracy. Refuse-when-should. Substring grounding (does the claim’s <code>source_quote</code> appear verbatim in the input). Steps-to-completion (one tool call for integrated, capped at three turns for chat with the extractor pass deciding completeness). Latency and token cost.</p>
+<p><strong>Judged.</strong> Claim grounding judged by Claude Opus 4.7 and GPT-5 in parallel; the conservative lower-of-two rates is the headline. Hook coherence on a binary pass/fail rubric judged by GPT-5-mini. Cohen’s kappa between Opus and OpenAI judges is reported every run so judge drift is visible.</p>
+<p><strong>Robustness.</strong> Three perturbation variants per item: typos, sentence reorder, and an appended injection probe. The reported drop is in classification accuracy and substring grounding rate versus the main pass.</p>
+<h2 id="headline-numbers">Headline numbers</h2>
+<p>73-item test set, Sonnet 4.6 held constant across both modes (thinking on for integrated, off for chat). Last run 2026-05-14.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Metric</th><th>Integrated</th><th>Chat</th><th>Δ</th></tr></thead><tbody><tr><td>Classification accuracy (per-item)</td><td><strong>61.6%</strong></td><td>47.8%</td><td>+13.9pp</td></tr><tr><td>Action accuracy</td><td><strong>80.8%</strong></td><td>64.2%</td><td>+16.6pp</td></tr><tr><td>Fit score, Spearman</td><td><strong>0.78</strong></td><td>0.75</td><td>+0.03</td></tr><tr><td>Substring grounding</td><td><strong>99.3%</strong></td><td>93.4%</td><td>+5.9pp</td></tr><tr><td>Judge grounding (conservative)</td><td>68.8%</td><td><strong>79.9%</strong></td><td>-11.1pp</td></tr><tr><td>Hook pass rate</td><td>68.1%</td><td><strong>84.5%</strong></td><td>-16.4pp</td></tr><tr><td>Latency p50</td><td>30.98s</td><td><strong>19.66s</strong></td><td>+11.32s</td></tr></tbody></table>
+<p>The integrated build wins where the contract bites: action accuracy, classification, substring grounding, fit-score correlation. The chat build wins where free-form prose has the advantage: hook quality on a binary judge rubric, judge-grounding by the looser semantic definition, and p50 latency because it does not run extended thinking. The integrated build does not win everywhere. The wins and the losses both follow from the contract, and both are measured on the same set and shown side by side.</p>
+<h2 id="one-failure-the-eval-caught">One failure the eval caught</h2>
+<p>The first full eval run found one problem. The repo keeps the results from before and after the fix.</p>
+<p><strong>2026-05-13 · <code>classification.industry</code>.</strong> First full eval showed the integrated build’s industry classification correct on 24/73 items (32.9%). The tool schema declared <code>industry</code> as a free-form string and the system prompt provided no canonical vocabulary, so the model emitted semantically-right-but-strictly-wrong labels (“SaaS”, “B2B Software”) instead of the gold’s “B2B SaaS”. The fix added an 8-value enum to <code>industry</code> on the <code>enrich_lead</code> tool schema (verbatim gold vocabulary plus “Insufficient signal” as the catch-all) and a one-line system-prompt instruction naming the catch-all. The chat build was not modified; the chat-side lift (38.2% → 88.3%) is a methodology effect because the Haiku extractor shares the same tool schema. Integrated landed at 94.5%.</p>
+<p>The failure could not be seen by reading the prompt. It only appeared when the outputs were compared with strict gold labels.</p>
+<h2 id="what-changes-for-production">What changes for production</h2>
+<p>This is a portfolio demo. These parts would change in a real deployment:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Area</th><th>Demo</th><th>Production</th></tr></thead><tbody><tr><td>Input trigger</td><td>Paste in browser</td><td>CRM record trigger, browser extension on LinkedIn, CSV bulk import</td></tr><tr><td>ICP</td><td>Fixed, declared on <code>/methodology</code></td><td>Customer-supplied, structured or hybrid CRM-linked, anchored rubrics calibrated against the customer’s pipeline</td></tr><tr><td>Eval cadence</td><td>Manual via GitHub Actions <code>workflow_dispatch</code></td><td>PR regression gate on the anchor subset, full eval on schedule, alerting on metric drift</td></tr><tr><td>Telemetry</td><td>Funnel signals on the demo, no real adoption data</td><td>Per-user adoption metrics, time-to-action, override rate, action accuracy on confirmed leads</td></tr><tr><td>Persistence</td><td>None server-side, localStorage for chat</td><td>Per-account history, audit log, retention policy aligned with customer agreement</td></tr><tr><td>Languages</td><td>EN / SV / DE</td><td>Customer-driven; gold-labelling repeated per added language</td></tr></tbody></table>
+<p>The eval harness, the structured-tool-with-substring-grounding pattern, and the dated regression-and-fix loop are the parts that travel directly to a production system. The fictional ICP is the part that is replaced.</p>
+<h2 id="tech-stack">Tech stack</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Layer</th><th>Tech</th><th>What it does</th></tr></thead><tbody><tr><td>Frontend</td><td>Next.js (App Router), TypeScript, shadcn/ui, custom theme</td><td>Two product surfaces against the same backend, themed in cream / navy / amber</td></tr><tr><td>Backend</td><td>Python services on Modal</td><td><code>enrich_lead</code> for integrated, chat completion endpoint for chat, embedding similarity lookup</td></tr><tr><td>Database</td><td>Postgres on Neon with pgvector, pooled connection (PgBouncer transaction mode)</td><td>Telemetry rows, eval set with embeddings, eval-run snapshots</td></tr><tr><td>LLM</td><td>Anthropic Sonnet 4.6 (live, both modes), Haiku 4.5 (chat extractor at eval time)</td><td>Structured tool use with extended thinking on integrated; free-form prose on chat</td></tr><tr><td>Embeddings</td><td>Voyage-3 (precomputed for eval set, live for incoming requests)</td><td>Top-3 nearest-neighbour panel in product, similarity-based eval-set lookup</td></tr><tr><td>Eval harness</td><td>Python via Anthropic batch API, GitHub Actions <code>workflow_dispatch</code></td><td>Deterministic metrics, two judge models for claim grounding, perturbation suite</td></tr><tr><td>Judges</td><td>Claude Opus 4.7 + GPT-5 (claim grounding, parallel), GPT-5-mini (hook coherence)</td><td>Cross-provider judging with Cohen’s kappa reported per run</td></tr><tr><td>Rate limiting</td><td>Upstash Redis per-IP token bucket</td><td>Demo cost-cap with a daily-limit fallback message</td></tr><tr><td>Observability</td><td>Modal and Vercel logs, Sentry, Vercel Analytics</td><td>Cookieless funnel events split into operational vs prospect-funnel layers</td></tr><tr><td>Deploy</td><td>GitHub Actions on <code>main</code>, <code>vercel deploy --prod</code> + <code>modal deploy</code></td><td>Front, back, and eval contract stay in lockstep</td></tr></tbody></table> </div> </article>  </main> <footer class="wrap"> <hr> <p>&copy; 2026 Alfred Persson &middot; <a href="/privacy/">Privacy</a> &middot; <a href="https://github.com/alfredpersson">GitHub</a> &middot; <a href="https://www.linkedin.com/in/alfredpersson">LinkedIn</a></p> </footer> </body></html>
