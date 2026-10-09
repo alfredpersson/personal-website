@@ -1,8 +1,8 @@
-// Renders public/og-image.png (1200x630), the preview image that link
+// Renders public/og-image.jpg (1200x630), the preview image that link
 // previews show, from an HTML page with headless Chrome, so it uses the
 // site's own fonts, colors and photo.
-// Needs a local Chrome or Chromium. Set CHROME to its path if it is not in
-// the default macOS location.
+// Needs a local Chrome or Chromium (set CHROME to its path if it is not in
+// the default macOS location) and macOS sips for the JPEG conversion.
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -47,7 +47,9 @@ const html = `<!doctype html>
 </body>
 </html>`;
 
-const page = join(mkdtempSync(join(tmpdir(), 'og-')), 'og.html');
+const dir = mkdtempSync(join(tmpdir(), 'og-'));
+const page = join(dir, 'og.html');
+const png = join(dir, 'og.png');
 writeFileSync(page, html);
 execFileSync(
   chrome,
@@ -58,9 +60,14 @@ execFileSync(
     '--force-device-scale-factor=1',
     '--window-size=1200,630',
     '--virtual-time-budget=3000',
-    `--screenshot=${resolve('public/og-image.png')}`,
+    `--screenshot=${png}`,
     `file://${page}`,
   ],
   { stdio: 'ignore' }
 );
-console.log('wrote public/og-image.png');
+execFileSync(
+  'sips',
+  ['-s', 'format', 'jpeg', '-s', 'formatOptions', '92', png, '--out', resolve('public/og-image.jpg')],
+  { stdio: 'ignore' }
+);
+console.log('wrote public/og-image.jpg');
