@@ -1,51 +1,19 @@
 # alfredpersson.com
 
-Personal website and portfolio built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/).
+Personal site, built with [Astro](https://astro.build) and TypeScript. Static output, no client JavaScript, deployed to GitHub Pages.
 
-## Local Development
+Case studies have a typed content schema: each one needs exactly three decisions, each with a reason and a measurement, or the build fails.
 
-**Prerequisites:** Python 3, pip (or uv), and on macOS: `brew install cairo freetype libffi libjpeg libpng zlib pngquant`
-
-```bash
-pip install "mkdocs-material[imaging]"
-
-# macOS Apple Silicon
-export DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib
-
-mkdocs serve
-```
-
-Site will be available at `http://localhost:8000`.
-
-### Docker Alternative
+## Development
 
 ```bash
-chmod +x start_server.sh
-./start_server.sh
+pnpm install
+pnpm dev        # http://localhost:4321
+pnpm build      # astro check + static build to dist/
 ```
 
-## Project Structure
-
-```
-docs/
-├── index.md              # Homepage
-├── portfolio/            # Case studies
-│   └── projects/         # Individual project write-ups
-├── blog/                 # Blog posts
-├── assets/               # Images and media
-└── stylesheets/          # Custom CSS
-mkdocs.yml                # Site configuration
-```
+Dependencies are installed through pnpm with a one-week minimum release age (pnpm-workspace.yaml), so freshly published package versions never enter the build.
 
 ## Deployment
 
-The site is deployed to GitHub Pages. Pushing to `main` triggers a build via GitHub Actions.
-
-- **Custom domain:** configured via `docs/CNAME`
-- **Deployment guide:** [Publishing your site](https://squidfunk.github.io/mkdocs-material/publishing-your-site/)
-
-## Useful Links
-
-- [MkDocs Material docs](https://squidfunk.github.io/mkdocs-material/)
-- [Icons & Emojis](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/)
-- [Blog plugin](https://squidfunk.github.io/mkdocs-material/blog/)
+Pushing to main builds and publishes dist/ to the gh-pages branch via GitHub Actions. Domain: alfredpersson.com (public/CNAME).
