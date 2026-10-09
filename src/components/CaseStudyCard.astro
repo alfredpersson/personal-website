@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+  study: CollectionEntry<'caseStudies'>;
+}
+const { study } = Astro.props;
+const { title, problem, role, decisions, headlineNumber, status } = study.data;
+const formatDecision = (s: string) => {
+  const stripped = s.replace(/^to\s+/, '');
+  return stripped.charAt(0).toUpperCase() + stripped.slice(1);
+};
+---
+<article class="case-card" id={`cs-${study.id}`}>
+  <div class="case-card__head">
+    <h3>
+      {status === 'live' ? <a href={`/case-studies/${study.id}/`}>{title}</a> : title}
+    </h3>
+    {status === 'live' && <span class="chip">{headlineNumber}</span>}
+    {status === 'reserved' && <span class="reserved">in progress</span>}
+  </div>
+  <p class="problem">{problem} <em>Role: {role}.</em></p>
+  <div class="ledger">
+    {decisions.map((d) => (
+      <div class="ledger-row decision-row">
+        <p class="decision-row__decision">{formatDecision(d.decision)}</p>
+        <p class="decision-row__because">Because {d.because}.</p>
+        <p class="decision-row__measured"><span class="row-tag">Measured by</span>{d.measuredBy}</p>
+      </div>
+    ))}
+    <div class="ledger-bottom"></div>
+  </div>
+  {status === 'live' && <p class="case-card__more"><a href={`/case-studies/${study.id}/`}>Read the full case study</a></p>}
+</article>

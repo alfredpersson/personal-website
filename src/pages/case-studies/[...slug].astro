@@ -1,0 +1,38 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const studies = await getCollection('caseStudies', ({ data }) => data.status === 'live');
+  return studies.map((study) => ({ params: { slug: study.id }, props: { study } }));
+}
+const { study } = Astro.props;
+const { Content } = await render(study);
+const { title, problem, role, decisions, headlineNumber } = study.data;
+const formatDecision = (s: string) => {
+  const stripped = s.replace(/^to\s+/, '');
+  return stripped.charAt(0).toUpperCase() + stripped.slice(1);
+};
+---
+<Base title={title} description={problem}>
+  <article>
+    <div class="case-card__head">
+      <h1>{title}</h1>
+      <span class="chip">{headlineNumber}</span>
+    </div>
+    <p class="problem">{problem} <em>Role: {role}.</em></p>
+    <div class="ledger">
+      {decisions.map((d) => (
+        <div class="ledger-row decision-row">
+          <p class="decision-row__decision">{formatDecision(d.decision)}</p>
+          <p class="decision-row__because">Because {d.because}.</p>
+          <p class="decision-row__measured"><span class="row-tag">Measured by</span>{d.measuredBy}</p>
+        </div>
+      ))}
+      <div class="ledger-bottom"></div>
+    </div>
+    <div class="case-body">
+      <Content />
+    </div>
+  </article>
+</Base>

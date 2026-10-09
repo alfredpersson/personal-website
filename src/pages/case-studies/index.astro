@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import { getCollection } from 'astro:content';
+const studies = (await getCollection('caseStudies')).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="Case studies" description="AI products I have built: the problem, the decisions, and what the numbers showed.">
+  <h1>Case studies</h1>
+  {studies.map((study) => <CaseStudyCard study={study} />)}
+</Base>

@@ -1,0 +1,17 @@
+---
+interface Props {
+  target: string;
+}
+const { target } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={new URL(target, Astro.site)} />
+    <title>Moved</title>
+  </head>
+  <body>
+    <p>This page moved. <a href={target}>Continue</a>.</p>
+  </body>
+</html>

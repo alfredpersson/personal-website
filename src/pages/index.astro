@@ -1,0 +1,255 @@
+---
+import Base from '../layouts/Base.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import { getCollection } from 'astro:content';
+const studies = (await getCollection('caseStudies')).sort((a, b) => a.data.order - b.data.order);
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+<Base title="Alfred Persson, Senior AI Engineer" description="Senior AI Engineer. I build AI products that prove they work: LLM pipelines, evaluation systems, production guardrails, measured on every change.">
+  <header class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>Alfred<br>Persson</h1>
+        <p class="role">Senior AI Engineer</p>
+        <p class="hero-headline">I build AI products that prove they work, on every change.</p>
+        <p class="hero-scope"><span class="hero-scope__label">End-to-end ownership:</span> user discovery, system design, shipping, and grading the AI's output against real examples.</p>
+        <p class="situation">Previously tech lead at ChromaWay. After that I built <a href="/case-studies/sveasync/">SveaSync</a>, an AI assistant platform for local businesses.</p>
+      </div>
+      <div class="hero-photo-wrap">
+        <span class="hero-photo-mark"></span>
+        <div class="hero-photo">
+          <img src="/assets/alfredpersson.jpg" alt="Alfred Persson" />
+        </div>
+        <p class="photo-cap">
+          <svg class="pin-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Stockholm (Q1 2027)
+        </p>
+      </div>
+    </div>
+    <p class="hero-links">
+      <a href="/cv.pdf">CV (PDF)</a>
+      <a href="https://github.com/alfredpersson">GitHub</a>
+      <a href="https://www.linkedin.com/in/alfredpersson">LinkedIn</a>
+      <a href="mailto:alfredpersson.se@gmail.com">alfredpersson.se@gmail.com</a>
+    </p>
+  </header>
+
+  <section id="what-i-do">
+    <div class="section-label">
+      <h2>What I do</h2>
+    </div>
+    <p>I'm trained in interaction design, so I start with what the user is trying to get done, and I use error analysis to find where the product fails to deliver it.</p>
+    <p>What end-to-end ownership means, concretely:</p>
+    <div class="ledger">
+      <div class="ledger-row two-layer-row">
+        <div class="two-layer">
+          <h3>Start from the user's problem.</h3>
+          <p>I talk to users to understand what they are trying to get done, and use AI only where it is genuinely the best tool. AI inference is the slowest, most expensive, and least predictable way to solve a problem, so every part of a feature that can be ordinary software should be.</p>
+          <p class="technical"><span class="row-tag">Technical</span>Jobs-to-be-done discovery; deterministic logic wherever possible; model calls reserved for the steps that need judgment or language.</p>
+        </div>
+      </div>
+      <div class="ledger-row two-layer-row">
+        <div class="two-layer">
+          <h3>Design the right kind of system for the task.</h3>
+          <p>That can be a normal, predictable workflow that calls AI for specific steps, a system that searches your own data before answering, or an agent that plans and acts on its own. I pick the shape by the task, and keep everything around the AI boring and reliable.</p>
+          <p class="technical"><span class="row-tag">Technical</span>Deterministic workflows with LLM steps, RAG pipelines, tool-using agents, human-in-the-loop escalation, multi-tenant isolation.</p>
+        </div>
+      </div>
+      <div class="ledger-row two-layer-row">
+        <div class="two-layer">
+          <h3>Agree on what "working" means before building.</h3>
+          <p>Before writing code, I collect real example inputs and write down what a correct result looks like for each one. Those examples become automatic checks that run on every change, showing whether each change made quality better or worse.</p>
+          <p class="technical"><span class="row-tag">Technical</span>Hand-labeled eval sets with pass or fail criteria, run in CI as the regression suite.</p>
+        </div>
+      </div>
+      <div class="ledger-row two-layer-row">
+        <div class="two-layer">
+          <h3>Plan for the model being wrong.</h3>
+          <p>A model will be wrong some of the time, so I design that moment on purpose: what the user sees, when the system says it is not sure, and when a human takes over. Every failure that shows up in production becomes another automatic check, so the same mistake cannot return unnoticed.</p>
+          <p class="technical"><span class="row-tag">Technical</span>Confidence gates, designed fallback and escalation paths, production errors converted into permanent CI test cases.</p>
+        </div>
+      </div>
+      <div class="ledger-row two-layer-row">
+        <div class="two-layer">
+          <h3>Measure whether it actually helps.</h3>
+          <p>I track whether the feature helps in numbers: who uses it, whether it resolves what they came for, and how good the outputs are, checked by both humans and automated grading.</p>
+          <p class="technical"><span class="row-tag">Technical</span>Production trace analysis, LLM-as-judge scoring validated against human grading, quality and usage metrics per release.</p>
+        </div>
+      </div>
+      <div class="ledger-bottom"></div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="section-label">
+      <h2>Stack</h2>
+    </div>
+    <div class="stack-list">
+      <div class="stack-row">
+        <span class="stack-row__label">Languages</span>
+        <p>TypeScript and Node.js, Python, SQL and Postgres. React and Next.js when the work needs it.</p>
+      </div>
+      <div class="stack-row">
+        <span class="stack-row__label">LLM engineering</span>
+        <p>agent and tool design, RAG pipelines, structured outputs, streaming, runtime guardrails, human-in-the-loop design, multi-tenant isolation.</p>
+      </div>
+      <div class="stack-row">
+        <span class="stack-row__label">Evaluation</span>
+        <p>error analysis on production traces, failure taxonomies, LLM-as-judge validated against human grading, CI suites from production errors, Langfuse.</p>
+      </div>
+      <div class="stack-row">
+        <span class="stack-row__label">Infra</span>
+        <p>Cloudflare Workers, Docker, Redis, Modal, FastAPI, GitHub Actions.</p>
+      </div>
+      <div class="stack-bottom"></div>
+    </div>
+  </section>
+
+  <section id="fit">
+    <div class="section-label">
+      <h2>Fit</h2>
+    </div>
+    <div class="fit-table">
+      <div class="fit-pair fit-pair--head">
+        <span class="fit-pair__aspect"></span>
+        <span class="fit-col-head">Good fit</span>
+        <span class="fit-col-head fit-col-head--less">Less of a fit</span>
+      </div>
+      <div class="fit-pair">
+        <span class="fit-pair__aspect">Ownership</span>
+        <p>Deciding what to build: talking to users, choosing the problems worth solving, and answering for the results.</p>
+        <p class="fit-less">Work that arrives as pre-scoped tickets, with the problems decided elsewhere.</p>
+      </div>
+      <div class="fit-pair">
+        <span class="fit-pair__aspect">Scope</span>
+        <p>Shaping how frontend, backend, and AI fit together, alongside the teams that build each part.</p>
+        <p class="fit-less">Roles boxed into a single layer, like frontend-only or backend-only.</p>
+      </div>
+      <div class="fit-pair">
+        <span class="fit-pair__aspect">Product</span>
+        <p>Products where AI is the core, or a feature users have come to depend on.</p>
+        <p class="fit-less">Products with no user-facing AI, or where AI only helps write the code.</p>
+      </div>
+      <div class="fit-pair">
+        <span class="fit-pair__aspect">AI work</span>
+        <p>Applied AI: products built on foundation models, with quality measured on every change.</p>
+        <p class="fit-less">ML research or model training.</p>
+      </div>
+      <div class="fit-bottom"></div>
+    </div>
+  </section>
+
+  <section id="case-studies">
+    <div class="section-label">
+      <h2>Case studies</h2>
+    </div>
+    {studies.map((study) => <CaseStudyCard study={study} />)}
+  </section>
+
+  <section id="writing">
+    <div class="section-label">
+      <h2>Writing</h2>
+    </div>
+    <ul>
+      {posts.map((post) => (
+        <li><a href={`/blog/${post.data.permalink ?? post.id}/`}>{post.data.title}</a></li>
+      ))}
+    </ul>
+  </section>
+
+  <section id="background">
+    <div class="section-label">
+      <h2>Background</h2>
+    </div>
+    <div class="resume">
+      <p class="resume-sublabel">Experience</p>
+      <details class="resume-entry">
+        <summary>
+          <span class="resume-entry__row">
+            <span class="resume-entry__title"><span class="resume-entry__company">SveaSync</span> <span class="resume-entry__role">AI Engineer</span></span>
+            <span class="resume-entry__years">2026 to present</span>
+          </span>
+        </summary>
+        <ul>
+          <li>Designed, built and operated a multi-tenant AI assistant platform for local businesses in hospitality and events, with responsibility for the whole product: architecture, quality, compliance and pricing.</li>
+          <li>Agent: a tool-calling LLM agent built in Python, with a TypeScript frontend, serving website chat and WhatsApp Business.</li>
+          <li>Knowledge base: self-service in Google Sheets, so businesses can update their own information without help.</li>
+          <li>Quality system: risk classification and deterministic guardrails before any model call, escalation to a person when the assistant is unsure, and every production error converted into a permanent CI test.</li>
+          <li>Compliance: EU AI Act transparency built into the assistant, and drafted the service and data processing agreements.</li>
+        </ul>
+        <p>The decisions and the architecture are in the <a href="/case-studies/sveasync/">case study</a>.</p>
+      </details>
+      <details class="resume-entry">
+        <summary>
+          <span class="resume-entry__row">
+            <span class="resume-entry__title"><span class="resume-entry__company">ChromaWay</span> <span class="resume-entry__role">Senior Software Engineer / Tech Lead, Platform &amp; Distributed Systems</span></span>
+            <span class="resume-entry__years">Stockholm, 2021 to 2026</span>
+          </span>
+        </summary>
+        <ul>
+          <li>Tech lead for teams of up to 10 developers on Chromia, a blockchain platform built on a relational database (Postgres), with review responsibility for architecture and implementation.</li>
+          <li>Built a RAG-based chat application on the platform's AI services (LLM inference and an on-chain vector database). It was deployed live as the company's official showcase of what developers can build with those services.</li>
+          <li>As the first real user of those AI services, fed bugs and improvements back to the core team.</li>
+          <li>Built the entire blockchain backend for the game Mines of Dalarnia with one colleague, and helped design its in-game economy. The contracts processed over 1M real-money transactions, and the game peaked as the second most used app on Binance Chain.</li>
+          <li>Owned Chromia's staking system, where 1,000+ users locked their own funds. Diagnosed and fixed a critical bug that caused exponential data growth, which resolved a network-wide performance problem.</li>
+          <li>Took several partner projects from first conversation to first version: talked directly with the partner companies, built the product from scratch and iterated on their feedback.</li>
+          <li>Shaped the user-test strategy for the developer documentation with the team lead and set up external user tests.</li>
+        </ul>
+      </details>
+      <details class="resume-entry">
+        <summary>
+          <span class="resume-entry__row">
+            <span class="resume-entry__title"><span class="resume-entry__company">Senseworks</span> <span class="resume-entry__role">Front-end Developer (part-time)</span></span>
+            <span class="resume-entry__years">2020 to 2021</span>
+          </span>
+        </summary>
+        <ul>
+          <li>Built interactive tables and graphs of financial data for auditors and accountants, in React and TypeScript.</li>
+          <li>Integrated REST APIs and managed client-side state with Redux Toolkit.</li>
+        </ul>
+      </details>
+      <p class="resume-sublabel">Education</p>
+      <div class="resume-entry resume-entry--static">
+        <span class="resume-entry__row">
+          <span class="resume-entry__title"><span class="resume-entry__company">Umeå University</span> <span class="resume-entry__role">MSc in Engineering programme, Interaction Technology and Design</span></span>
+          <span class="resume-entry__years">2016 to 2021</span>
+        </span>
+        <p>Five-year programme spanning programming, algorithms, statistics, human-computer interaction, human-centred AI, and UX evaluation and research. Exchange semester at Northern Arizona University, fall 2019.</p>
+      </div>
+      <p class="resume-sublabel">Certifications</p>
+      <div class="resume-entry resume-entry--static">
+        <span class="resume-entry__row">
+          <span class="resume-entry__title"><span class="resume-entry__company">AI Evals for Engineers &amp; PMs</span> <span class="resume-entry__role">Hamel Husain &amp; Shreya Shankar, Maven</span></span>
+          <span class="resume-entry__years">2026</span>
+        </span>
+      </div>
+      <div class="resume-entry resume-entry--static">
+        <span class="resume-entry__row">
+          <span class="resume-entry__title"><span class="resume-entry__company">AI Engineer Expert</span> <span class="resume-entry__role">Datalumina</span></span>
+          <span class="resume-entry__years">2026</span>
+        </span>
+      </div>
+      <div class="resume-bottom"></div>
+    </div>
+  </section>
+
+  <aside class="toc" aria-label="On this page">
+    <p class="toc__head">On this page</p>
+    <a href="#what-i-do">What I do</a>
+    <a href="#stack">Stack</a>
+    <a href="#fit">Fit</a>
+    <a href="#case-studies">Case studies</a>
+    <div class="toc__sub">
+      {studies.map((study) => (
+        <a href={`#cs-${study.id}`}>{study.data.title.split(':')[0]}</a>
+      ))}
+    </div>
+    <a href="#writing">Writing</a>
+    <a href="#background">Background</a>
+  </aside>
+</Base>

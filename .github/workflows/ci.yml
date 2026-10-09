@@ -1,29 +1,35 @@
-name: ci 
+name: ci
 on:
   push:
-    branches:
-      - master 
-      - main
+    branches: [main, astro-rebuild]
 permissions:
   contents: write
 jobs:
-  deploy:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Configure Git Credentials
+      - name: Reject private-content marker
         run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      - uses: actions/setup-python@v5
+          # Regex uses + so this workflow file never contains the literal marker itself
+          if grep -rqE 'visibility: +private' src public; then
+            echo 'Found private-content marker in public site source'
+            exit 1
+          fi
+      - uses: pnpm/action-setup@v4
         with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
-      - uses: actions/cache@v4
+          version: 10
+      - uses: actions/setup-node@v4
         with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: ~/.cache 
-          restore-keys: |
-            mkdocs-material-
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - name: Check internal links
+        run: pnpm dlx linkinator ./dist --recurse --skip "^https?://(?!localhost|127\.0\.0\.1|0\.0\.0\.0)"
+      - name: Deploy to gh-pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
