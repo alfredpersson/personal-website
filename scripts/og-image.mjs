@@ -1,4 +1,4 @@
-// Renders public/og-default.png (1200x630), the preview image that link
+// Renders public/og-image.png (1200x630), the preview image that link
 // previews show, from an HTML page with headless Chrome, so it uses the
 // site's own fonts, colors and photo.
 // Needs a local Chrome or Chromium. Set CHROME to its path if it is not in
@@ -58,9 +58,9 @@ execFileSync(
     '--force-device-scale-factor=1',
     '--window-size=1200,630',
     '--virtual-time-budget=3000',
-    `--screenshot=${resolve('public/og-default.png')}`,
+    `--screenshot=${resolve('public/og-image.png')}`,
     `file://${page}`,
   ],
   { stdio: 'ignore' }
 );
-console.log('wrote public/og-default.png');
+console.log('wrote public/og-image.png');
