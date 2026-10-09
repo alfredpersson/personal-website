@@ -1,6 +1,6 @@
 ---
 layout: ../layouts/MarkdownPage.astro
-title: "The AI Feature Maturity Ladder"
+title: "AI Feature Maturity Ladder: the framework"
 description: "A 5-level framework for diagnosing why an AI feature is not being adopted, and what to fix at each level."
 ---
 

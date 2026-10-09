@@ -14,10 +14,12 @@ decisions:
     measuredBy: "the critique verdict deciding whether human escalation is offered"
 headlineNumber: "71% hit rate at 5, 4.80/5 faithfulness, across 7 evaluation experiments"
 status: live
-order: 3
+order: 4
 ---
 
-## Video Walkthrough
+Code: [github.com/alfredpersson/rag-support-assistant](https://github.com/alfredpersson/rag-support-assistant).
+
+## Video walkthrough
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 800px;">
   <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://www.tella.tv/video/vid_cmneo6b35006306jzay6dasfh/embed?b=0&title=0&a=0&loop=0&t=0&muted=0&wt=0&o=0" allowfullscreen allowtransparency></iframe>

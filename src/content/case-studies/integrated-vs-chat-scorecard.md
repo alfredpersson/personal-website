@@ -9,13 +9,15 @@ decisions:
   - decision: "to ground every claim with two independent judges (Claude Opus 4.7 and GPT-5)"
     because: "a single judge bakes one model's bias into the results"
     measuredBy: "substring grounding rates per judge, 99.3% integrated vs 93.4% chat"
-  - decision: "to log regressions as dated incidents with their fixes"
-    because: "an eval that never catches anything proves nothing"
-    measuredBy: "documented regression-and-fix incidents in the repo history"
+  - decision: "to keep the eval run that failed, together with the fix and the run after it"
+    because: "a scorecard is only useful if it can catch a problem"
+    measuredBy: "one recorded case: industry classification went from 32.9% to 94.5% after the fix"
 headlineNumber: "80.8% vs 64.2% action accuracy, integrated vs chat, on a 73-item eval"
 status: live
-order: 2
+order: 3
 ---
+
+Code: [github.com/alfredpersson/lead-enrichment-eval](https://github.com/alfredpersson/lead-enrichment-eval). Live demo: [demo.alfredpersson.com](https://demo.alfredpersson.com).
 
 ## Overview
 
@@ -26,7 +28,7 @@ The task is sales lead enrichment. A user pastes a profile and a company descrip
 - The **integrated build** runs Sonnet 4.6 through a strict `enrich_lead` tool schema, with extended thinking on a 4,000-token budget and a hard rule that every claim must cite a verbatim source quote from the input.
 - The **chat build** runs the same Sonnet 4.6 with a task-describing system prompt and the ICP as context. No tools, no schema, no grounding rule. Multi-turn streaming chat with a Haiku 4.5 extractor pulling structured fields from the response for scoring.
 
-Both surfaces are productized to the same standard: lead queue, paste composer, status pills, themed palette, in-product diagnostics. The asymmetry sits at the model-side contract, not at the UI. That is what the scorecard measures.
+Both surfaces are productized to the same standard: lead queue, paste composer, status pills, themed palette, in-product diagnostics. The only difference between them is the contract with the model, and that difference is what the scorecard measures.
 
 ## The two builds, side by side
 
@@ -38,7 +40,7 @@ Both surfaces are productized to the same standard: lead queue, paste composer, 
 | Extended thinking | 4,000-token budget | Off |
 | Model | claude-sonnet-4-6 | claude-sonnet-4-6 |
 
-The chat build is not a strawman. Same model, same polish, same prompt care. What it lacks is the model-side contract: there is no tool the model can call, no schema the output must conform to, no enforced grounding rule. The scorecard reports where that absence shows up and where it does not.
+The chat build got the same model, the same interface work and the same care with the prompt. The one thing it lacks is the model-side contract: it has no tool to call, no schema for the output and no grounding rule. The scorecard reports where that shows up and where it does not.
 
 ## How the integrated build runs
 
@@ -74,19 +76,19 @@ The metrics split into three tiers. The deterministic block carries the credibil
 | Hook pass rate | 68.1% | **84.5%** | -16.4pp |
 | Latency p50 | 30.98s | **19.66s** | +11.32s |
 
-The integrated build wins where the contract bites: action accuracy, classification, substring grounding, fit-score correlation. The chat build wins where free-form prose has the advantage: hook quality on a binary judge rubric, judge-grounding by the looser semantic definition, and p50 latency because it does not run extended thinking. The point of the scorecard is not that integrated wins everywhere. It is that the wins and losses are predictable from the contract, measurable on the same set, and visible side by side.
+The integrated build wins where the contract bites: action accuracy, classification, substring grounding, fit-score correlation. The chat build wins where free-form prose has the advantage: hook quality on a binary judge rubric, judge-grounding by the looser semantic definition, and p50 latency because it does not run extended thinking. The integrated build does not win everywhere. The wins and the losses both follow from the contract, and both are measured on the same set and shown side by side.
 
-## The eval-and-fix loop
+## One failure the eval caught
 
-A static scorecard demonstrates the ability to measure quality. It does not demonstrate the ability to ship, measure, diagnose, and fix. The scorecard surfaces one dated incident where an eval-pass failure was diagnosed and a shipped fix moved the affected metric, with both pre-fix and post-fix snapshots committed.
+The first full eval run found one problem. The repo keeps the results from before and after the fix.
 
 **2026-05-13 · `classification.industry`.** First full eval showed the integrated build's industry classification correct on 24/73 items (32.9%). The tool schema declared `industry` as a free-form string and the system prompt provided no canonical vocabulary, so the model emitted semantically-right-but-strictly-wrong labels ("SaaS", "B2B Software") instead of the gold's "B2B SaaS". The fix added an 8-value enum to `industry` on the `enrich_lead` tool schema (verbatim gold vocabulary plus "Insufficient signal" as the catch-all) and a one-line system-prompt instruction naming the catch-all. The chat build was not modified; the chat-side lift (38.2% → 88.3%) is a methodology effect because the Haiku extractor shares the same tool schema. Integrated landed at 94.5%.
 
-The interesting part is the shape of the fix, not the lift. The vocabulary failure was invisible at the prompt level and only surfaced once the gold labels were strict. That is the kind of finding the eval harness is built to catch.
+The failure could not be seen by reading the prompt. It only appeared when the outputs were compared with strict gold labels.
 
 ## What changes for production
 
-This is a portfolio demo, not a production system. The shapes that change between this demo and a real deployment:
+This is a portfolio demo. These parts would change in a real deployment:
 
 | Area | Demo | Production |
 |---|---|---|
@@ -97,13 +99,13 @@ This is a portfolio demo, not a production system. The shapes that change betwee
 | Persistence | None server-side, localStorage for chat | Per-account history, audit log, retention policy aligned with customer agreement |
 | Languages | EN / SV / DE | Customer-driven; gold-labelling repeated per added language |
 
-The eval harness, the structured-tool-with-substring-grounding pattern, and the dated regression-and-fix loop are the parts that travel directly to a client engagement. The fictional ICP is the part that is replaced.
+The eval harness, the structured-tool-with-substring-grounding pattern, and the dated regression-and-fix loop are the parts that travel directly to a production system. The fictional ICP is the part that is replaced.
 
 ## Tech stack
 
 | Layer | Tech | What it does |
 |---|---|---|
-| Frontend | Next.js (App Router), TypeScript, shadcn/ui, custom theme | Two product surfaces against the same backend, themed in cream / navy / amber to match alfredpersson.com |
+| Frontend | Next.js (App Router), TypeScript, shadcn/ui, custom theme | Two product surfaces against the same backend, themed in cream / navy / amber |
 | Backend | Python services on Modal | `enrich_lead` for integrated, chat completion endpoint for chat, embedding similarity lookup |
 | Database | Postgres on Neon with pgvector, pooled connection (PgBouncer transaction mode) | Telemetry rows, eval set with embeddings, eval-run snapshots |
 | LLM | Anthropic Sonnet 4.6 (live, both modes), Haiku 4.5 (chat extractor at eval time) | Structured tool use with extended thinking on integrated; free-form prose on chat |

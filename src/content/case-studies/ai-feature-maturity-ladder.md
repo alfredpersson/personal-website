@@ -9,14 +9,14 @@ decisions:
   - decision: "to give every level both a user-visible signal and a team signal"
     because: "a feature can look adopted while being operationally fragile, and the reverse"
     measuredBy: "both signal columns present for all five levels"
-  - decision: "to publish under CC BY-NC-SA and keep the canonical version at one URL"
-    because: "a framework earns trust by being public, citable, and versioned in one place"
-    measuredBy: "the framework page's revision history"
+  - decision: "to make output quality one dimension of five, not the whole score"
+    because: "accuracy can improve while adoption stays flat"
+    measuredBy: "four of the five dimensions cover something other than output quality"
 headlineNumber: "Five dimensions, five levels, weakest dimension sets the score"
 status: live
-order: 4
+order: 5
 ---
 
-The Maturity Ladder is a diagnostic framework for user-facing AI products: five dimensions, five levels, and the weakest dimension sets the score. It exists because usage data kept showing adoption stalling for reasons that had nothing to do with the prompt.
+The Maturity Ladder is a diagnostic framework for user-facing AI products: five dimensions, five levels, and the weakest dimension sets the score. It is a synthesis of published work on maturity models, usability and LLM evaluation; the sources are listed on the framework page.
 
-The canonical version lives at [/framework/](/framework/), licensed CC BY-NC-SA. The [blog post](/blog/2026/03/25/the-ai-feature-maturity-ladder/) makes the argument for why the framework matters.
+The full framework is at [/framework/](/framework/). It is free to use and adapt for non-commercial work, with credit (license: CC BY-NC-SA). The [blog post](/blog/2026/03/25/the-ai-feature-maturity-ladder/) makes the argument for why the framework matters.

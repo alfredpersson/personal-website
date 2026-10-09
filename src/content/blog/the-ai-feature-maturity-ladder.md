@@ -23,7 +23,7 @@ This is the framework I use when I'm trying to figure out where an AI feature ac
 
 Most AI features in production today sit at Level 1 or 2. [Only 12% of organizations](https://www.infosys.com/services/data-ai-topaz/insights/enterprises-ai-maturity-leaders.html) have achieved AI integration at scale, and [just 38% have moved beyond pilots](https://www.tekta.ai/reports/mckinsey-state-of-ai-2025). The teams behind these features think they're at Level 3 because the feature works well in demos, but demo performance and real-world adoption are different problems.
 
-The gap between 2 and 3 is where most teams get stuck. Crossing it requires work on product fit, trust, and measurement, because [real adoption only happens when AI is built into the natural workflow](https://www.fiwe.com/en/library/knowledge-posts/ai-adoption-ai-in-workflows-not-the-toolbox), not bolted on as a side feature. Most teams skip that part entirely.
+The gap between 2 and 3 is where most teams get stuck. Crossing it requires work on product fit, trust, and measurement, because real adoption only happens when AI is built into the natural workflow, not bolted on as a side feature. Most teams skip that part entirely.
 
 ## Why accuracy is a red herring
 
